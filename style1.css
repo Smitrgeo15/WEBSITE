@@ -1,0 +1,306 @@
+
+*,*:after,*:before{
+    box-sizing: border-box;
+
+
+}
+html {
+
+}
+body{
+
+
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+}
+#logo{
+    padding:2px;
+    z-index:110;
+    box-shadow: 0 0 25px 0 black;
+
+}
+#logo img {
+    max-width: 100%; /* Ensure images don't exceed their container width */
+    height: auto;   /* Maintain aspect ratio */
+    display: block; /* Remove extra space below inline images */
+}
+
+#logo1 {
+    height: 100px;
+    width: 100px;
+}
+#logo2 {
+    height:100px;
+    width:180px;
+}
+.header{
+    background:#022335;
+     max-width:1600px;
+     width:100%;
+     margin:0 auto;
+    left:0;
+    top:0;
+    width:100%;
+    z-index:110;
+    padding:15px 30px;
+
+
+
+}
+.container{
+    max-width:1600px;
+    width:100%;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+}
+#homeimage{
+
+    max-width:1600px;
+    width:100%;
+    margin:0 auto;
+
+    align-items:center;
+    justify-content:space-between;
+
+}
+.main_nav{
+
+}
+.main_nav ul{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+    z-index:1100;
+
+}
+.main_nav ul li{
+    float:left;
+    margin:0 0 0 5px;
+    font-size:20px;
+    letter-spacing:1px;
+    font-weight:300;
+    position:relative;
+
+}
+.main_nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 15px;
+    display: block;
+    line-height: 1.4;
+    transition: all 0.3s ease-out;
+}
+.main_nav ul li:hover > a{
+    color: white;
+    background:blue;
+}
+.main_nav ul ul{
+    position: absolute;
+    left: 0;
+    top: calc(100% + 15px);
+    white-space: nowrap;
+    transition: all 0.3s ease-out;
+    opacity:0;
+    pointer-events:none;
+}
+.main_nav ul ul li{
+    float: none;
+    margin: 0;
+    border-bottom: 1px solid #fff;
+}
+
+.main_nav ul > li > ul:after{
+    content:"";
+    position:absolute;
+    bottom:100%;
+    left:0;
+    height:16px;
+    width:100%;
+
+
+
+}
+.main_nav ul ul li a{
+    background:#022335;
+}
+.main_nav ul li:hover > ul{
+    opacity:1;
+    pointer-events:auto;
+}
+.main_nav ul li:hover ul li:hover > a{
+    background:#0a91da;
+    color:#fff;
+
+}
+.main_nav ul li i{
+    position:absolute;
+    right:0;
+    top:8px;
+    color:#fff;
+}
+.main_nav ul li:hover > i{
+    color:#0a91da;
+
+}
+.main_nav ul ul ul{
+    left:100%;
+    top:0;
+}
+.main_nav ul ul li i{
+    right:3px;
+
+}
+.main_nav ul ul li:hover i{
+    color:#fff;
+}
+/* Responsive css*/
+
+@media only screen  and (min-width: 768px) and (max-width: 991px){
+   main_nav ul li{font-size: 16 px; margin: 0;}
+  .main_nav ul li a{padding: 5px 10px;}
+
+
+}
+@media screen and (min-width: 768px){
+     .nav_icon,#navTrigger{ display:none; }
+
+}
+@media screen and (max-width: 767px){
+
+    .nav_icon{
+        display: black;
+        position: relative;
+        font-size: 36px;
+        color: #fff;
+        cursor: pointer;
+    }
+    .main_nav{
+        position: fixed;
+        left: 0;
+        top: 72px;
+        padding: 0;
+        background: #022335;
+        z-index: 100;
+        height: calc(100% - 74px);
+        overflow: auto;
+        width: calc(100% - 100px);
+        transition: all 0.3s ease-out;
+        transform: translateX(-150%);
+        }
+    .main_nav ul li{
+        float: none;
+        margin 0 !important;
+        border-bottom: 1px solid #fff;
+
+        }
+    .main_nav ul li a{
+        padding: 10px;
+        }
+    .main_nav > ul > li:hover > a{
+        background: #0a91da;
+        color: #fff;
+        }
+    .main_nav ul ul{
+        position: static;
+        pointer-events: auto;
+        opacity: 1;
+        height: 0;
+        overflow: hidden;
+        }
+    .main_nav ul ul li a{ padding-left: 30px; }
+    .main_nav ul ul ul li a{ padding-left: 60px; }
+    .main_nav ul ul li i{
+        transform: rotate(90deg);
+        right: 10px;
+        }
+    .main_nav ul li:hover > ul{ height: auto  }
+    #navTrigger{
+        opacity: 0;
+        position: fixed;
+        width: 0;
+        height: 0;
+        margin: 0;
+    }
+    #navTrigger:checked + .main_nav {
+        transform: translateX(0%);
+        margin-top:60px;
+    }
+}
+
+
+
+
+.container.shadow.rounded {
+    margin: 20px auto;
+    padding: 10px;
+    display: block;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if there's not enough space */
+}
+
+.container.shadow.rounded > div {
+    flex-basis: calc(50% - 20px); /* Set the initial width to 50% minus margin */
+    padding: 15px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.container.shadow.rounded > div h3,
+.container.shadow.rounded > div h4,
+.container.shadow.rounded > div h6,
+.container.shadow.rounded > div h4,
+.container.shadow.rounded > div p {
+    margin: 0;
+}
+.card {
+    flex-basis: 100%; /* Make cards take up the full width of the container on small screens */
+    margin-bottom: 20px; /* Add space between cards */
+}
+.img-responsive {
+    width: 100%; /* Make images take up the full width of their container */
+    height: auto; /* Maintain aspect ratio */
+}
+@media screen and (max-width: 400px) {
+    .container.shadow.rounded {
+        display: flex;
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center;
+    }
+
+    .card {
+        width: 100%; /* Make cards full width */
+        margin-bottom: 20px; /* Add space between cards */
+    }
+}
+/* Map container styling */
+.mapouter {
+    width: 100%; /* Full width of parent container */
+    height: 350px; /* Adjust height as needed */
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Map iframe styling */
+.gmap_iframe {
+    width: 100%; /* Full width of map container */
+    height: 100%; /* Full height of map container */
+    border: none;
+
+}
+
+/* Adjust map container and iframe styling for smaller screens */
+@media screen and (max-width: 767px) {
+    .mapouter {
+        width: 100%; /* Full width on smaller screens */
+        height: 300px; /* Adjust height as needed for smaller screens */
+    }
+
+    .gmap_iframe {
+        width: 100%; /* Full width on smaller screens */
+        height: 100%; /* Maintain aspect ratio */
+    }
+}

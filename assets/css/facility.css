@@ -1,0 +1,259 @@
+/* Facilities Page Specific Styles */
+
+.facility-section {
+    padding: 60px 0;
+    background-color: #e9eff3; /* Consistent light blue-grey background for the entire section */
+    box-shadow: none; /* No shadow on the main section itself */
+}
+
+.main-facilities-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Space between main columns */
+    justify-content: center;
+    align-items: flex-start; /* Align columns to the top */
+    margin-top: 40px; /* Space below section heading */
+}
+
+/* Styles for the main 3 columns (Computational, Survey, Drone) */
+.facility-main-column {
+    flex: 1 1 calc(33.33% - 20px); /* Three columns with gaps */
+    max-width: calc(33.33% - 20px);
+    min-width: 320px; /* Minimum width before stacking */
+    background-color: #ffffff; /* White background for main columns */
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Subtle shadow for main columns */
+    overflow: hidden; /* Ensures content respects border-radius */
+    display: flex;
+    flex-direction: column; /* Stack header and content */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect for main columns */
+}
+
+.facility-main-column:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), 0 0 30px rgba(10, 145, 218, 0.5);
+}
+
+/* Content body for main columns */
+.column-content-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stack facility items vertically */
+    gap: 20px; /* Space between facility items */
+    flex-grow: 1; /* Allows content area to fill remaining space */
+}
+
+/* Specific styling for the "Drone" column if empty */
+.drone-column .empty-column-note {
+    text-align: center;
+    color: #666;
+    padding: 30px;
+    font-style: italic;
+    font-size: 0.95em;
+}
+
+/* Survey Column specific styles for its sub-columns wrapper */
+.survey-sub-columns-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack sub-columns vertically */
+    gap: 20px; /* Space between airborne and ground-based sub-columns */
+    flex-grow: 1; /* Allow sub-column wrapper to fill space */
+}
+
+/* Styles for the sub-columns (Airborne, Ground Based) */
+.survey-sub-column {
+    flex: 1 1 100%; /* Each sub-column takes full width of its parent */
+    background-color: #f8f9fa; /* Slightly off-white background for sub-columns */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow for sub-columns */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect for sub-columns */
+}
+
+.survey-sub-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header for sub-columns */
+.sub-column-header {
+    background-color: #0a91da; /* Blue background for sub-column headers */
+    color: #fff;
+    padding: 12px 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-bottom: 15px; /* Space between header and content */
+}
+
+.sub-column-header h3 {
+    margin: 0;
+    font-size: 1em; /* Smaller font for sub-headers */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Content body for sub-columns */
+.sub-column-content-body {
+    padding: 0 15px 15px 15px; /* Padding around facility items within sub-columns */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between facility items in sub-columns */
+    flex-grow: 1;
+}
+
+/* Existing facility-item styles - adapted for new layout */
+.facility-item {
+    background-color: #ffffff; /* White background for individual items */
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow height to adjust */
+    border: 1px solid #eee; /* Light border */
+}
+
+.facility-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.facility-image {
+    width: 100%;
+    height: 160px; /* Consistent image height */
+    object-fit: contain; /* Ensures image fits without cropping, adds padding if needed */
+    display: block;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #fdfdfd; /* Light background for images with transparent areas */
+}
+
+.facility-info {
+    padding: 15px;
+    text-align: center;
+    flex-grow: 1; /* Allows info section to expand */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center title and caption vertically */
+    align-items: center; /* Center title and caption horizontally */
+}
+
+.facility-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    color: #022335;
+    margin-bottom: 8px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.image-caption {
+    font-size: 0.85em;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) { /* Tablets and smaller desktops */
+    .main-facilities-container {
+        flex-direction: column; /* Stack main columns vertically */
+        align-items: center;
+        gap: 25px; /* Adjust gap */
+    }
+    .facility-main-column {
+        flex: 1 1 100%; /* Take full width when stacked */
+        max-width: 100%;
+        min-width: unset; /* Remove min-width constraint */
+        transform: none; /* Disable hover transform on smaller screens */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Simpler shadow on touch devices */
+    }
+    .facility-main-column:hover {
+        transform: none;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .column-content-body {
+        padding: 15px; /* Adjust padding */
+        gap: 15px; /* Adjust gap */
+    }
+
+    .survey-sub-columns-wrapper {
+        flex-direction: column; /* Ensure sub-columns stack */
+        gap: 15px;
+    }
+    .survey-sub-column {
+        transform: none; /* Disable hover transform on smaller screens */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Simpler shadow on touch devices */
+    }
+    .survey-sub-column:hover {
+        transform: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    .sub-column-header {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+    .sub-column-content-body {
+        padding: 0 10px 10px 10px;
+        gap: 10px;
+    }
+    .facility-item {
+        transform: none; /* Disable hover transform on smaller screens */
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* Simpler shadow on touch devices */
+    }
+    .facility-item:hover {
+        transform: none;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    }
+    .facility-image {
+        height: 140px; /* Adjust image height */
+    }
+    .facility-info {
+        padding: 12px;
+    }
+    .facility-title {
+        font-size: 1em;
+    }
+    .image-caption {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 767px) { /* Mobile specific adjustments */
+    .facility-section {
+        padding: 40px 0;
+    }
+    .main-facilities-container {
+        gap: 20px;
+    }
+    .column-content-body {
+        padding: 10px;
+        gap: 10px;
+    }
+    .sub-column-header {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+    .sub-column-content-body {
+        padding: 0 8px 8px 8px;
+        gap: 8px;
+    }
+    .facility-image {
+        height: 120px; /* Further adjust image height for mobile */
+    }
+    .facility-info {
+        padding: 10px;
+    }
+    .facility-title {
+        font-size: 0.9em;
+    }
+    .image-caption {
+        font-size: 0.75em;
+    }
+}

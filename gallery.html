@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <!-- Custom Global CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style1.css" />
+
+    <!-- Gallery Page Specific CSS (STILL NEEDED FOR GALLERY STYLING) -->
+    <link rel="stylesheet" type="text/css" href="assets/css/gallery.css" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong|Roboto:400,700&display=swap">
+
+    <title>RCG | IIT Bombay - Gallery</title>
+</head>
+<body>
+
+<!-- Navbar will be loaded here by JavaScript -->
+<div id="navbar-placeholder"></div>
+
+<main>
+    <div class="container content-section gallery-page-content">
+        <h2 class="gallery-heading">RCG Photo Gallery</h2>
+        <div class="image-gallery-grid">
+            <div class="gallery-item">
+                <img src="assets/images/civil.jpg" >
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/spclgdummy.jpg" >
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/spclg2dummy.jpg" >
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/explanationofCORS.jpeg" >
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/group.jpeg" >
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/galleryimg1.jpeg" >
+            </div>
+            
+        </div>
+    </div>
+</main>
+
+<footer class="footer bg-dark text-light">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; font-size: 1rem;">
+        <span>Developed by: Pranav Saxena </span>
+        <span>&copy; 2025 RCG, IIT Bombay. All rights reserved.</span>
+        <span style="font-size: 0.95em;">Last update: Jul-24-2025</span>
+    </div>
+</footer>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<!-- Link to your navbar.js script -->
+<script src="assets/js/navbar.js"></script>
+
+<!-- NEW: Image Modal Structure -->
+<div id="imageModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <img id="modalImage" src="" alt="Enlarged gallery image">
+        <p id="modalCaption" class="modal-caption"></p>
+    </div>
+</div>
+
+<!-- NEW: Link to gallery-modal.js for functionality -->
+<script src="assets/js/gallery-modal.js"></script>
+
+</body>
+</html>

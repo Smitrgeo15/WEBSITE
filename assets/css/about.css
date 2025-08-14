@@ -1,0 +1,238 @@
+/* About Us Page Specific Styles */
+
+/* New wrapper for all content on the About page to apply unified background */
+.about-page-content-wrapper {
+    /* Removed background-color and box-shadow here as the body will handle the full page background */
+    padding: 60px 20px; /* Consistent padding around the entire content */
+    margin-top: 0; /* Ensures it sits right below the header */
+    margin-bottom: 0; /* Ensures no extra space before footer */
+}
+
+/* Styles for the main descriptive text within the About Us section */
+.about-content-text {
+    margin-bottom: 40px; /* Space after this block */
+}
+
+.about-content-text p {
+    font-size: 1.05em; /* Slightly larger text for readability */
+    color: #444; /* Dark grey text color */
+    text-align: justify; /* Justifies the text for a clean look */
+    line-height: 1.65; /* Good line height for readability */
+    margin-bottom: 15px; /* Space between paragraphs */
+}
+
+.about-content-text p:last-child {
+    margin-bottom: 0; /* No bottom margin on the last paragraph */
+}
+
+/* --- Origin of NCG Styles (now a vertical flow) --- */
+.origin-ncg-content {
+    display: flex;
+    flex-direction: column; /* MODIFIED: Stack image and text vertically */
+    align-items: center; /* Center items horizontally in the column */
+    justify-content: center;
+    gap: 40px; /* Space between image and text */
+    margin-bottom: 40px; /* Space after this block */
+}
+
+/* Image styling within the NCG section */
+.origin-ncg-image {
+    max-width: 80%; /* MODIFIED: Image takes more width */
+    max-height: 450px; /* NEW: Sets a maximum height for the image, slightly larger than before */
+    height: auto; /* MODIFIED: Auto height to maintain aspect ratio */
+    object-fit: contain; /* Ensure the whole image is visible, maintaining aspect ratio */
+    display: block;
+    border-radius: 10px;
+    box-shadow: none; /* REMOVED: Shadow effect from the image as per user request */
+    /* All hover effects and transitions have been removed */
+}
+
+.origin-ncg-text {
+    flex-grow: 1; /* Allows text to take up remaining space */
+    max-width: 100%; /* MODIFIED: Text takes full width */
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: #333;
+    text-align: justify;
+}
+
+.origin-ncg-text p {
+    margin-bottom: 15px;
+}
+
+.origin-ncg-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* --- Our Objectives Styles (now integrated into the unified flow) --- */
+.objectives-content-text {
+    margin-top: 30px; /* Space below the section heading */
+    max-width: 900px; /* Constrain width for better readability of the list */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.objectives-content-text ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.objectives-content-text li {
+    background-color: #ffffff; /* White background for each list item */
+    padding: 18px 30px;
+    margin-bottom: 15px; /* Space between list items */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow for each item */
+    display: flex;
+    align-items: flex-start;
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.6;
+    transition: all 0.3s ease; /* RESTORED: Transition for hover effects */
+    border-left: 6px solid #0a91da; /* Blue accent border on the left */
+}
+
+.objectives-content-text li:last-child {
+    margin-bottom: 0; /* No margin below the last item */
+}
+
+/* RESTORED: Hover effects for objectives-content-text li */
+.objectives-content-text li:hover {
+    transform: translateX(8px); /* Slide further to the right on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Stronger enhanced shadow on hover */
+    background-color: #e0f2f7; /* More distinct lighter blue background on hover */
+    color: #022335; /* Darker text on hover */
+}
+
+.objective-icon {
+    color: #0a91da; /* Blue color for the checkmark icon */
+    font-size: 1.4em;
+    margin-right: 20px;
+    flex-shrink: 0;
+    padding-top: 2px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* General Section Heading (for About RCG, Origin of NCG, Objectives) */
+.section-heading {
+    font-family: 'Trirong', sans-serif;
+    font-size: 2.5em;
+    color: #022335;
+    text-align: center;
+    margin-bottom: 40px; /* Consistent space below headings */
+    position: relative;
+    padding-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    /* Transition for underline handled by ::after */
+}
+
+.section-heading::after { /* Underline effect for headings */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background-color: #0a91da;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(10, 145, 218, 0.6);
+    transition: width 0.3s ease-out, box-shadow 0.3s ease-out; /* RESTORED: Transition for hover effects */
+}
+
+/* RESTORED: Hover effects for section-heading */
+.section-heading:hover::after {
+    width: 150px;
+    box-shadow: 0 0 25px rgba(10, 145, 218, 0.9);
+}
+
+
+/* Responsive CSS */
+@media (max-width: 991px) {
+    .about-page-content-wrapper {
+        padding: 40px 15px; /* Adjust padding for tablets */
+    }
+    .about-content-text p {
+        font-size: 1em;
+    }
+    .section-heading {
+        font-size: 2em; /* Adjust heading size for tablets */
+        margin-bottom: 30px;
+    }
+    .origin-ncg-content {
+        /* This is now the default, so we don't need a specific change here. */
+        gap: 30px;
+        text-align: center;
+    }
+    .origin-ncg-image {
+        max-width: 95%; /* MODIFIED: Image takes most of the width */
+        max-height: 400px; /* NEW: Adjusts max height for smaller screens, slightly larger */
+        margin: 0 auto;
+        height: auto;
+        box-shadow: none; /* REMOVED: Shadow effect from the image as per user request */
+    }
+    /* Disable hover effects for touch devices on images for better UX */
+    .origin-ncg-image:hover {
+        transform: none;
+        box-shadow: none; /* Revert to no shadow */
+    }
+    .origin-ncg-text {
+        max-width: 100%; /* Text takes full width */
+        text-align: justify; /* Keep justified for paragraphs */
+    }
+    .objectives-content-text li {
+        font-size: 1em;
+        padding: 15px 20px;
+    }
+    /* Disable hover effects for touch devices on list items for better UX */
+    .objectives-content-text li:hover {
+        transform: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        background-color: #ffffff;
+        color: #333;
+    }
+    .objective-icon {
+        font-size: 1.2em;
+        margin-right: 15px;
+    }
+    /* Disable hover effects for touch devices on section headings for better UX */
+    .section-heading:hover::after {
+        width: 120px;
+        box-shadow: 0 0 15px rgba(10, 145, 218, 0.6);
+    }
+}
+
+@media (max-width: 767px) {
+    .about-page-content-wrapper {
+        padding: 30px 10px; /* Adjust padding for mobile */
+    }
+    .about-content-text p {
+        font-size: 0.95em;
+    }
+    .section-heading {
+        font-size: 1.8em; /* Adjust heading size for mobile */
+        margin-bottom: 25px;
+    }
+    .origin-ncg-content {
+        gap: 20px;
+    }
+    .origin-ncg-image {
+        max-width: 95%; /* Image takes full width on mobile */
+        max-height: 300px; /* NEW: Adjusts max height for mobile, slightly larger */
+        height: auto;
+        box-shadow: none; /* REMOVED: Shadow effect from the image as per user request */
+    }
+    .origin-ncg-text {
+        font-size: 0.95em;
+    }
+    .objectives-content-text li {
+        font-size: 0.95em;
+        padding: 12px 15px;
+    }
+    .objective-icon {
+        font-size: 1em;
+        margin-right: 10px;
+    }
+}

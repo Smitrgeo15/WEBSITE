@@ -1,0 +1,1124 @@
+/* Universal Box-sizing */
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+/* HTML and Body Defaults */
+html {
+    height: -webkit-fill-available;
+    scroll-padding-top: 140px; /* Adjusted to account for new fixed header height */
+}
+
+body {
+    line-height: 1.65; /* Slightly increased for better readability */
+    font-family: 'Roboto', sans-serif; /* Primary font for body text */
+    font-weight: normal;
+    height: -webkit-fill-available;
+    margin: 0; /* Remove default body margin */
+    /* MODIFIED: Subtle radial gradient for body background for depth */
+    background: radial-gradient(circle at top left, #fbfbfb, #f0f0f0);
+    color: #333; /* Default text color */
+    overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+    padding-top: 140px; /* Space for the fixed header, adjust if header height changes */
+}
+
+/* Global Container for Centering and Max-Width */
+.container {
+    max-width: 1280px; /* MODIFIED: Increased max-width for more expansive content */
+    width: 100%;
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 0 20px; /* Consistent horizontal padding for content */
+}
+
+/* Fixed Header Wrapper */
+.fixed-header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top of other content */
+    background-color: #f8f9fa; /* Background for the fixed area - KEEP THIS WHITE */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* MODIFIED: Stronger shadow */
+}
+
+
+/* Top Bar Container (Logos and Main Title) */
+.top-bar-container {
+    background-color: #ffffff; /* KEEP THIS WHITE */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* MODIFIED: Stronger shadow */
+    padding: 5px 0; /* Reduced vertical padding further */
+    z-index: 110;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-section img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.iitb-logo-link, .rcg-logo-link { /* Styling for both logo links */
+    display: flex; /* Makes the link wrap the image nicely */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-out; /* Smooth hover effect */
+}
+
+.iitb-logo-link:hover, .rcg-logo-link:hover {
+    transform: scale(1.08); /* MODIFIED: More pronounced zoom on hover */
+}
+
+#logo1 {
+    height: 80px; /* Slightly smaller logo */
+    width: 80px; /* Slightly smaller logo */
+    object-fit: contain;
+}
+
+#logo2 { /* Re-added RCG logo styling */
+    height: 80px; /* Slightly smaller logo */
+    width: 140px; /* Adjusted width for new height */
+    object-fit: contain;
+}
+
+.center-text {
+    flex-grow: 1;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.center-text h1 {
+    font-family: 'Trirong', sans-serif;
+    font-size: 2.1em; /* Slightly smaller heading */
+    color: #022335;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* MODIFIED: More prominent text shadow */
+}
+
+.center-text h4 {
+    color: #555;
+    margin-top: 0;
+    font-size: 1.05em; /* Slightly smaller subheading */
+}
+
+/* Header (Navigation Bar) */
+/* This section should ideally be in navbar.css now, but leaving for consistency if it's still here */
+.header {
+    /* MODIFIED: Subtle vertical gradient for background */
+    background: linear-gradient(to bottom, #0a2b41, #022335);
+    width: 100%;
+    z-index: 100;
+    padding: 8px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); /* MODIFIED: Stronger shadow */
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* This should be overridden by navbar.css center */
+}
+
+/* Main Navigation UL */
+/* These should be in navbar.css */
+.main_nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none !important;
+    z-index: 1100;
+    display: flex;
+}
+
+.main_nav ul li {
+    margin: 0 10px;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    position: relative;
+}
+
+.main_nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 12px;
+    display: block;
+    line-height: 1.4;
+    transition: all 0.3s ease-out;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.main_nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #0a91da;
+    transition: left 0.3s ease-out;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.main_nav ul li a:hover::before,
+.main_nav ul li a.active::before {
+    left: 0;
+}
+
+.main_nav ul li a:hover,
+.main_nav ul li a.active {
+    color: #fff;
+    transform: translateY(-3px); /* MODIFIED: More pronounced lift */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* MODIFIED: Stronger shadow */
+}
+
+/* Dropdown Menus (Sub-menus) */
+/* These should be in navbar.css */
+.main_nav ul ul {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    white-space: nowrap;
+    background: #022335;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* MODIFIED: Stronger shadow */
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+    opacity: 0;
+    pointer-events: none;
+    min-width: 180px;
+    flex-direction: column;
+}
+
+.main_nav ul > li > ul:after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 20px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #022335 transparent;
+}
+
+.main_nav ul ul li {
+    float: none;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main_nav ul ul li:last-child {
+    border-bottom: none;
+}
+
+.main_nav ul ul li a {
+    background: transparent;
+    padding: 10px 15px;
+}
+
+.main_nav ul li:hover > ul {
+    opacity: 1;
+    pointer-events: auto;
+    top: 100%;
+}
+
+.main_nav ul ul li:hover > a {
+    background: #0a91da;
+    color: #fff;
+}
+
+/* Right-pointing icons for nested dropdowns */
+.main_nav ul li i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 0.8em;
+    transition: transform 0.3s ease-out;
+}
+
+.main_nav ul li:hover > i {
+    color: #0a91da;
+}
+
+.main_nav ul ul ul {
+    left: 100%;
+    top: 0;
+}
+
+.main_nav ul ul li i {
+    transform: rotate(90deg);
+    right: 15px;
+}
+
+.main_nav ul ul li:hover i {
+    color: #fff;
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Main Content Area */
+main {
+    padding-bottom: 40px; /* Space before the footer */
+}
+
+/* General Section Heading (for Contact Us, About Us etc.) */
+.section-heading {
+    font-family: 'Trirong', sans-serif;
+    font-size: 2.5em; /* MODIFIED: Slightly larger heading */
+    color: #022335; /* Dark blue color */
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* Subtle text shadow */
+}
+
+.section-heading::after { /* Underline effect for headings */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 120px; /* MODIFIED: Slightly wider underline */
+    height: 4px; /* MODIFIED: Thicker underline */
+    background-color: #0a91da; /* RCG blue */
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(10, 145, 218, 0.6); /* MODIFIED: Subtle glow for underline */
+    transition: width 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.section-heading:hover::after {
+    width: 150px; /* MODIFIED: Expand underline on hover */
+    box-shadow: 0 0 25px rgba(10, 145, 218, 0.9); /* MODIFIED: Stronger glow on hover */
+}
+
+
+/* --- NEW HERO SECTION (Welcome Banner) --- */
+.hero {
+    /* MODIFIED: More refined blue gradient */
+    background: linear-gradient(145deg, #1a4f80 0%, #0d386b 100%); /* Adjusted gradient for a slightly brighter feel */
+    color: #fff;
+    text-align: center;
+    padding: 80px 0; /* MODIFIED: Adjusted vertical padding */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px; /* MODIFIED: Reduced min-height */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Initial shadow */
+    transition: all 0.4s ease-out; /* Simpler, faster transition for the box */
+}
+
+/* Popping and Lightning Effects on Hover for the Entire Hero Box */
+.hero:hover {
+    transform: translateY(-10px) scale(1.01); /* Subtle pop and scale for the box */
+    /* Refined glow for the box, single strong layer */
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.7), /* Strong white glow */
+                0 15px 40px rgba(0, 0, 0, 0.4); /* Deeper shadow for depth */
+}
+
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: 'Trirong', serif;
+    font-size: 4.0em; /* MODIFIED: Adjusted font size */
+    font-weight: 700; /* Bolder */
+    margin-bottom: 10px; /* MODIFIED: Adjusted margin for alignment after removing subtitle */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); /* Consistent text shadow */
+    color: #ffffff;
+    /* Removed transition and hover effects */
+}
+
+/* Removed .hero-subtitle styling as the element is gone from HTML */
+
+.hero-institution {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em; /* MODIFIED: Adjusted font size */
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 20px; /* MODIFIED: Adjusted space before description */
+    color: #c9e9f2; /* Color */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Consistent text shadow */
+    /* Removed transition and hover effects */
+}
+
+.hero-description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em; /* MODIFIED: Adjusted font size */
+    line-height: 1.8;
+    margin-top: 0; /* Retain as spacing is from institution's margin-bottom */
+    margin-bottom: 50px; /* MODIFIED: Adjusted space before buttons */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Consistent text shadow */
+    color: #add8e6; /* Color */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Removed transition and hover effects */
+}
+
+/* IMPORTANT: Individual text hover effects are removed. Now, the whole .hero box moves and glows. */
+/* The text-shadow on hover for individual elements are kept only for consistency in the case where hero:hover doesn't apply */
+.hero-title:hover,
+.hero-institution:hover, /* Subtitle removed */
+.hero-description:hover {
+    /* No specific transform/box-shadow here, as it's handled by .hero:hover */
+    /* Keep base text-shadow for readability */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Homepage Sections - Full Breadth (These are now for content *below* the hero banner) */
+.welcome-section, /* Now used for 'About RCG' content block */
+.announcements-section {
+    width: 100%;
+    padding: 60px 0; /* Vertical padding for sections */
+    margin-bottom: 0; /* No margin between sections, use padding instead */
+}
+
+.welcome-section {
+    background-color: #ffffff; /* Light background for welcome section */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* MODIFIED: Stronger subtle shadow */
+}
+
+.announcements-section {
+    background-color: #f0f0f0; /* Slightly darker background for announcements */
+    box-shadow: inset 0 5px 15px rgba(0,0,0,0.05); /* MODIFIED: Stronger inner shadow for subtle depth */
+}
+
+
+/* Homepage Welcome Section Content (Now for 'About RCG' content card) */
+.welcome-content-wrapper {
+    display: flex;
+    flex-direction: row; /* Side-by-side on desktop */
+    align-items: center; /* Vertically align items */
+    gap: 40px; /* Space between image/info and text */
+    margin-bottom: 40px; /* Space below content before buttons */
+}
+
+.prof-intro-section {
+    flex-shrink: 0; /* Don't allow it to shrink */
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f0f8ff; /* Aliceblue-like background for this box */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* MODIFIED: Stronger initial shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 280px; /* Fixed width for the professor intro box */
+}
+
+ /* .prof-intro-section:hover {
+    transform: translateY(-8px);  
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3), 0 0 30px rgba(10, 145, 218, 0.7); 
+} */ 
+
+.prof-main-pic {
+    height: 180px; /* Larger image */
+    width: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* MODIFIED: Stronger shadow */
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.prof-main-info {
+    margin-bottom: 0;
+}
+
+.prof-main-info .prof-name {
+    font-size: 1.2em;
+    color: #022335;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.prof-main-info .prof-dept {
+    font-size: 1em;
+    color: #555;
+    display: block;
+}
+
+.welcome-main-text {
+    flex-grow: 1; /* Allows text to take up remaining space */
+    text-align: justify;
+    padding-right: 20px; /* Add some padding to the right for text readability if it pushes too far */
+}
+
+.welcome-main-text p {
+    font-size: 1.05em;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.welcome-main-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Homepage Announcements Section Content */
+.announcement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Responsive grid for announcements */
+    gap: 30px;
+}
+
+.announcement-grid p {
+    background-color: #ffffff;
+    padding: 20px;
+    border-left: 5px solid #0a91da; /* Blue accent */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* MODIFIED: Stronger shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 0; /* Remove default paragraph margin */
+}
+
+.announcement-grid p:hover {
+    transform: translateY(-5px); /* MODIFIED: More pronounced lift */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* MODIFIED: Stronger shadow */
+}
+
+.announcement-grid p strong {
+    color: #022335; /* Dark blue for titles */
+    display: block;
+    margin-bottom: 5px;
+}
+
+.announcement-grid p small {
+    font-size: 0.85em;
+    color: #666;
+    display: block;
+    line-height: 1.3;
+}
+.announcement-grid p a {
+    color: #0a91da;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.announcement-grid p a:hover {
+    text-decoration: underline;
+}
+
+/* Common Card Styles (for About, Contact, etc. - NOT for homepage now) */
+.content-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.card-section {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically by default */
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+/* Flex container for Contact Page (to lay out cards side-by-side on desktop) */
+.contact-page-flex-container {
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.card-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* MODIFIED: Stronger initial shadow */
+    padding: 0;
+    flex: 1 1 auto;
+    min-width: 300px;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+/* For contact page cards, give them equal width */
+.contact-page-flex-container .card-item {
+    flex: 1 1 calc(50% - 15px);
+    max-width: calc(50% - 15px);
+}
+
+/* Card Hover Effect */
+.card-item:hover {
+    transform: translateY(-8px); /* MODIFIED: More pronounced lift */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* MODIFIED: Stronger shadow */
+}
+
+/* Wrapper for card headers (Welcome & Announcements & Featured Research) */
+.card-header-wrapper {
+    background-color: #022335;
+    color: #fff;
+    padding: 18px 25px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 3px solid #0a91da;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-header-wrapper h2 {
+    font-family: 'Trirong', sans-serif;
+    font-size: 1.8em;
+    margin: 0;
+    color: #fff;
+    border-bottom: none;
+    padding-bottom: 0;
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Glow Effect */
+.card-header-wrapper:before {
+    content: '';
+    background: linear-gradient(120deg, rgba(10, 145, 218, 0.8), rgba(2, 35, 53, 0.8), rgba(10, 145, 218, 0.8));
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    transform: rotate(30deg);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.card-header-wrapper:hover:before {
+    opacity: 1;
+}
+
+.card-header-wrapper:hover {
+    background-color: #0a91da;
+    box-shadow: 0 0 25px rgba(10, 145, 218, 0.7);
+}
+
+/* Welcome Message Specifics (Original, still used by about/contact) */
+.welcome-card {
+    border-left: 5px solid #0a91da;
+}
+
+.welcome-content-body {
+    padding: 25px; /* Consistent padding for content */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.welcome-full-width-content {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.welcome-full-width-content:last-child {
+    margin-bottom: 0;
+}
+
+.prof-image-wrapper {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prof-image-wrapper:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(10, 145, 218, 0.5);
+}
+
+.profile-pic {
+    height: 150px;
+    width: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease;
+}
+
+.prof-image-wrapper:hover .profile-pic {
+    transform: scale(1.05);
+}
+
+.prof-info {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.prof-name {
+    font-size: 1.1em;
+    color: #0a91da;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.prof-dept {
+    font-size: 0.95em;
+    color: #666;
+    display: block;
+}
+
+.prof-text-content {
+    flex-grow: 1;
+}
+
+.welcome-text {
+    font-size: 1em;
+    color: #444;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+/* Container for buttons within cards */
+.card-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.readmore-btn,
+.btn-primary,
+.btn-outline-primary {
+    padding: 12px 30px; /* MODIFIED: Larger padding for buttons */
+    border-radius: 8px; /* MODIFIED: More rounded corners */
+    transition: all 0.3s ease;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.5px; /* MODIFIED: Slight letter spacing */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* MODIFIED: Initial shadow for buttons */
+}
+
+/* Primary Button Specifics */
+.btn-primary {
+    background-color: #0a91da;
+    border-color: #0a91da;
+    color: #fff;
+}
+
+/* Outline Button Specifics */
+.btn-outline-primary {
+    background-color: transparent;
+    border-color: #0a91da;
+    color: #0a91da;
+}
+
+/* Button Glow Effect (applied to .glow-on-hover class) */
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(120deg, rgba(10, 145, 218, 0.9), rgba(2, 35, 53, 0.9), rgba(10, 145, 218, 0.9)); /* MODIFIED: Stronger gradient opacity */
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    transform: rotate(30deg);
+    opacity: 0;
+    transition: opacity 0.4s ease; /* MODIFIED: Longer transition for glow appearance */
+    z-index: -1;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:hover {
+    color: #fff;
+    background-color: #022335;
+    border-color: #022335;
+    box-shadow: 0 0 30px rgba(10, 145, 218, 0.8); /* MODIFIED: Stronger glow */
+    transform: translateY(-5px); /* MODIFIED: More pronounced lift */
+}
+
+/* Announcements Specifics (Original, still used by about/contact) */
+.announcement-card {
+    border-left: 5px solid #022335;
+}
+
+.announcement-content {
+    padding: 0 25px 25px 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.announcement-content p {
+    margin-bottom: 12px;
+    font-size: 0.98em;
+    color: #444;
+    line-height: 1.4;
+}
+
+.announcement-content p strong {
+    color: #022335;
+}
+
+.announcement-content a {
+    color: #0a91da;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.announcement-content a:hover {
+    text-decoration: underline;
+}
+
+.announcement-content i {
+    color: #0a91da;
+    margin-right: 8px;
+}
+
+/* Contact Table Styles */
+.contact-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-bottom: 20px;
+}
+
+.contact-table td {
+    padding: 8px 0;
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+}
+
+.contact-table tr:last-child td {
+    border-bottom: none;
+}
+
+.contact-icon {
+    width: 30px;
+    text-align: center;
+    color: #0a91da;
+    font-size: 1.2em;
+    padding-right: 10px;
+}
+
+.contact-text {
+    color: #444;
+    font-size: 0.98em;
+    line-height: 1.4;
+}
+
+.contact-text a {
+    color: #0a91da;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-text a:hover {
+    text-decoration: underline;
+}
+
+/* Professor Contact Photo on Contact Page */
+.prof-contact-photo-wrapper {
+    flex-shrink: 0;
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.contact-profile-pic {
+    height: 120px;
+    width: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+/* New flex container for professor details (image + text) for Contact page */
+.prof-details-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.prof-details-text {
+    flex-grow: 1;
+}
+
+
+/* Map Container for responsiveness */
+.map-container {
+    position: relative;
+    padding-bottom: 75%; /* 4:3 Aspect Ratio (e.g., 600px height on 800px width) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* Responsive CSS */
+@media (max-width: 991px) {
+    .center-text h1 {
+        font-size: 1.8em;
+    }
+    .center-text h4 {
+        font-size: 1em;
+    }
+    .main_nav ul li {
+        font-size: 1em;
+        margin: 0 5px;
+    }
+    .main_nav ul li a {
+        padding: 5px 8px;
+    }
+    .card-item {
+        max-width: calc(100% - 12.5px); /* Ensure responsiveness on tablets */
+    }
+    .contact-page-flex-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-page-flex-container .card-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .prof-contact-photo-wrapper {
+        width: 100%;
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* Homepage responsiveness */
+    .welcome-content-wrapper {
+        flex-direction: column; /* Stack prof intro and text on smaller screens */
+        align-items: center;
+        gap: 30px;
+    }
+    .prof-intro-section {
+        width: 100%; /* Allow prof intro box to take full width on mobile */
+        max-width: 280px; /* But keep a reasonable max-width */
+    }
+    .welcome-main-text {
+        padding-right: 0; /* Remove right padding on mobile */
+        text-align: left; /* Revert to left align for easier reading on mobile */
+    }
+    .announcement-grid {
+        grid-template-columns: 1fr; /* Single column for announcements on smaller screens */
+    }
+
+    /* Responsive adjustments for Hero Section on Tablets */
+    .hero {
+        padding: 60px 0; /* MODIFIED: Adjusted for tablet */
+        min-height: 320px; /* MODIFIED: Adjusted for tablet */
+    }
+    .hero-title {
+        font-size: 3.2em; /* MODIFIED: Adjusted for tablet */
+    }
+    /* .hero-subtitle no longer exists */
+    .hero-institution { /* Responsive adjustment for institution text */
+        font-size: 1.3em; /* MODIFIED: Adjusted for tablet */
+    }
+    .hero-description {
+        font-size: 1.1em; /* MODIFIED: Adjusted for tablet */
+    }
+
+    /* Disable hover effects for touch devices on sections for better UX */
+    .hero:hover { /* Only the box itself has transform/shadow now */
+        transform: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Revert to initial shadow */
+    }
+}
+
+@media (max-width: 767px) {
+    .logo-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .iitb-logo-link, .rcg-logo-link {
+        margin: 10px auto;
+    }
+    #logo1, #logo2 {
+        height: 70px;
+        width: auto;
+    }
+
+    .center-text {
+        padding: 10px 0;
+    }
+    .center-text h1 {
+        font-size: 1.5em;
+    }
+    .center-text h4 {
+        font-size: 0.9em;
+    }
+
+    .nav_icon {
+        display: block;
+        position: relative;
+        font-size: 36px;
+        color: #fff;
+        cursor: pointer;
+    }
+    .header-content {
+        justify-content: flex-end;
+    }
+    .main_nav {
+        position: fixed;
+        left: 0;
+        top: 130px;
+        padding: 0;
+        background: #022335;
+        z-index: 100;
+        height: calc(100% - 130px);
+        overflow-y: auto;
+        width: 250px;
+        transition: transform 0.3s ease-out;
+        transform: translateX(-100%);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .main_nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .main_nav ul li {
+        float: none;
+        margin: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .main_nav ul li:last-child {
+        border-bottom: none;
+    }
+    .main_nav ul li a {
+        padding: 12px 15px;
+    }
+    .main_nav > ul > li:hover > a {
+        background: #0a91da;
+        color: #fff;
+    }
+    .main_nav ul ul {
+        position: static;
+        pointer-events: auto;
+        opacity: 1;
+        height: auto;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.2);
+        box-shadow: none;
+        border-radius: 0;
+        padding-left: 15px;
+    }
+    .main_nav ul ul li a {
+        padding-left: 30px;
+    }
+    .main_nav ul ul ul li a {
+        padding-left: 45px;
+    }
+    .main_nav ul ul li i {
+        transform: rotate(90deg);
+        right: 15px;
+    }
+    .main_nav ul li:hover > ul {
+        height: auto;
+    }
+    #navTrigger {
+        opacity: 0;
+        position: fixed;
+        width: 0;
+        height: 0;
+        margin: 0;
+    }
+    #navTrigger:checked + .main_nav {
+        transform: translateX(0%);
+    }
+    .card-item {
+        max-width: 100%;
+    }
+    .card-button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .prof-image-wrapper {
+        width: 100%;
+        max-width: 150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .prof-text-content {
+        min-width: unset;
+        text-align: justify;
+    }
+
+    /* Responsive adjustments for Hero Section on Mobile */
+    .hero {
+        padding: 50px 0; /* MODIFIED: Adjusted for mobile */
+        min-height: 250px; /* MODIFIED: Adjusted for mobile */
+    }
+    .hero-title {
+        font-size: 2.2em; /* MODIFIED: Adjusted for mobile */
+    }
+    /* .hero-subtitle no longer exists */
+    .hero-institution { /* Responsive adjustment for institution text */
+        font-size: 1.1em; /* MODIFIED: Adjusted for mobile */
+    }
+    .hero-description {
+        font-size: 0.95em; /* MODIFIED: Adjusted for mobile */
+    }
+
+    .hero:hover { /* Disable hover effects for mobile */
+        transform: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Revert to initial shadow */
+    }
+}

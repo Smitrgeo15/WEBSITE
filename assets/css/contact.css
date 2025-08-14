@@ -1,0 +1,158 @@
+/* Contact Page Specific Styles */
+
+/* Styles for the new combined contact card */
+.contact-combined-card {
+    max-width: 900px; /* Limit max width for readability */
+    margin: 40px auto; /* Center the card and provide vertical spacing */
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for the card */
+    overflow: hidden; /* Ensures rounded corners are applied to content */
+}
+
+/* Inner content wrapper for contact details and map */
+.contact-combined-content {
+    display: flex;
+    flex-direction: row; /* Side-by-side on desktop */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 30px; /* Space between details and map */
+    padding: 30px; /* Padding inside the combined card */
+    justify-content: center; /* Center content horizontally */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.contact-details-section {
+    flex: 1 1 40%; /* Take about 40% width, allow shrinking/growing */
+    min-width: 300px; /* Minimum width before stacking */
+    padding-right: 15px; /* Space from map on larger screens */
+}
+
+.contact-map-section {
+    flex: 1 1 50%; /* Take about 50% width, allow shrinking/growing */
+    min-width: 300px; /* Minimum width before stacking */
+    padding-left: 15px; /* Space from details on larger screens */
+}
+
+
+/* Existing contact styles, ensure they apply correctly */
+.prof-details-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.prof-contact-photo-wrapper {
+    flex-shrink: 0;
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.contact-profile-pic {
+    height: 165px;
+    width: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+.prof-details-text {
+    flex-grow: 1;
+}
+
+.contact-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-bottom: 20px;
+}
+
+.contact-table td {
+    padding: 8px 0;
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+}
+
+.contact-table tr:last-child td {
+    border-bottom: none;
+}
+
+.contact-icon {
+    width: 30px;
+    text-align: center;
+    color: #0a91da;
+    font-size: 1.2em;
+    padding-right: 10px;
+}
+
+.contact-text {
+    color: #444;
+    font-size: 0.98em;
+    line-height: 1.4;
+}
+
+.contact-text a {
+    color: #0a91da;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-text a:hover {
+    text-decoration: underline;
+}
+
+.map-container {
+    position: relative;
+    padding-bottom: 75%; /* 4:3 Aspect Ratio (e.g., 600px height on 800px width) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Responsive adjustments for Contact Page */
+@media (max-width: 991px) {
+    .contact-combined-content {
+        flex-direction: column; /* Stack details and map vertically on tablets */
+        gap: 20px;
+        padding: 20px; /* Adjust padding */
+    }
+    .contact-details-section,
+    .contact-map-section {
+        flex: 1 1 100%; /* Take full width when stacked */
+        max-width: 100%;
+        padding-right: 0; /* Remove side padding when stacked */
+        padding-left: 0;
+    }
+    .map-container {
+        padding-bottom: 60%; /* Adjust map aspect ratio for tablets */
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-combined-card {
+        margin: 20px auto; /* Adjust margin for mobile */
+    }
+    .contact-combined-content {
+        padding: 15px; /* Adjust padding for mobile */
+        gap: 15px;
+    }
+    .map-container {
+        padding-bottom: 75%; /* Adjust map aspect ratio for mobile */
+    }
+}

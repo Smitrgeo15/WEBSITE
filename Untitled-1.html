@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RCG Welcome Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+    }
+
+    .banner img {
+        width: 80%;
+        max-width: 800px;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .main-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .images {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 350px;
+    }
+
+    .images img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .content {
+        flex: 1;
+        min-width: 300px;
+        text-align: justify;
+        line-height: 1.6;
+    }
+
+    .content b {
+        color: #0044aa;
+    }
+
+    .button {
+        display: block;
+        padding: 10px 20px;
+        background-color: #004a70;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        margin: 20px auto; /* centers horizontally */
+        text-align: center;
+        width: fit-content;
+    }
+
+    .button:hover {
+        background-color: #003554;
+    }
+</style>
+</head>
+<body>
+
+<div class="banner">
+    <img src="assets/images/IMG_0695(1).JPG" alt="RCG Banner">
+</div>
+
+<div class="main-section">
+    <!-- Left: Images -->
+    <div class="images">
+        <img src="assets/images/Earth_FlatVsRugged.gif" alt="Image 1">
+        <img src="assets/images/Earth_FlatVsRugged.gif" alt="Image 2">
+        <img src="assets/images/Earth_FlatVsRugged.gif" alt="Image 3">
+        <img src="assets/images/Earth_FlatVsRugged.gif" alt="Image 4">
+    </div>
+
+    <!-- Right: Text -->
+    <div class="content">
+        <p>
+            The Regional Centre for Geodesy (RCG) at IIT Bombay stands as a key hub for advanced research, education, and innovation in the dynamic and evolving field of <b>Geodesy</b>. The centre is dedicated to deepening our understanding of the Earth's shape, gravity field, and rotational <b>behavior</b>, along with their changes over time. Using advanced technologies such as <b>GNSS</b>, Satellite Altimetry, and Remote Sensing, RCG addresses critical challenges in areas like crustal deformation monitoring, sea level variations, precise geospatial positioning, and infrastructure development.
+        </p>
+        <p>
+            RCG is committed to fostering a vibrant academic and research environment that supports the development of future geodetic scientists and engineers. Through a mix of training programs, hands-on learning, and academic engagement, the centre encourages knowledge transfer by collaborating with national and international organizations. RCG strives to transform cutting-edge research into meaningful solutions that address real-world problems and contribute to both scientific progress and societal benefit.
+        </p>
+    </div>
+</div>
+<!-- Video and Calendar Section -->
+<div class="video-calendar-section">
+    <!-- Left: NASA Video -->
+    <div class="video-box">
+        <iframe src="https://eyes.nasa.gov/apps/earth/#/vital-signs/gravity-field-map/water-storage-monthly?animating=true&start=2010-01-01&end=2025-05-01" width="450" height="300" style="border:none;">
+        </iframe>
+    </div>
+
+    <!-- Right: Calendar -->
+    <div class="calendar-box">
+        
+        <iframe src="https://calendar.google.com/calendar/embed?height=300&wkst=1&ctz=Asia%2FKolkata&showPrint=0&src=NjA5ZWI4YjYyNTVkOGRjMjA0MTM5MmIwMTc2NDZjNDAzMmE2MWMxN2MwNjA0NzQxYjQzMDA5YjY5YzMwN2Q4OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23e4c441&color=%230b8043" style="border:solid 1px #777" width="300" height="300" frameborder="0" scrolling="no">
+        </iframe>
+    </div>
+</div>
+
+<style>
+.video-calendar-section {
+    display: flex;
+    justify-content: space-between; /* Space between video & calendar */
+    align-items: center; /* Align them vertically */
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.video-box {
+    flex: 0 0 auto;
+}
+
+.calendar-box {
+    flex: 0 0 auto;
+}
+</style>
+
+</body>
+</html>
+
+
+

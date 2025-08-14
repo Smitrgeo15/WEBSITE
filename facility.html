@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <!-- Custom Global CSS (must load first for shared styles) -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style1.css" />
+
+    <!-- Facilities Page Specific CSS (loads after global CSS) -->
+    <link rel="stylesheet" type="text/css" href="assets/css/facility.css" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong|Roboto:400,700&display=swap">
+
+    <title>RCG | IIT Bombay - Facilities</title>
+</head>
+<body>
+
+<!-- Navbar will be loaded here by JavaScript -->
+<div id="navbar-placeholder"></div>
+
+<main>
+    <!-- Facilities Section - Full Breadth -->
+    <section class="facility-section">
+        <div class="container">
+            <h2 class="section-heading">Our Facilities</h2>
+
+            <div class="main-facilities-container">
+                <!-- Computational Column -->
+                <div class="card-item facility-main-column computational-column">
+                    <div class="card-header-wrapper">
+                        <h2>Computational</h2>
+                    </div>
+                    <div class="column-content-body">
+                        <div class="facility-item">
+                            <img src="assets/images/cloudstation.jpg" alt="GNSS Data Processing Workstation" class="facility-image">
+                            <div class="facility-info">
+                                <h4 class="facility-title">GNSS Data Processing Workstation</h4>
+                                <p class="image-caption">Powerful computing setup optimized for post-processing raw GNSS data, enabling precise coordinate determination, geodetic analysis, and crustal deformation studies.</p>
+                                    ,<strong style="color:#4682b4;" >Pixaarnet Workstation-3 Nos.</strong>
+                                    <ul> 
+                                        <li>
+                                            i9 Powered Computers
+                                        </li>
+                                        <li>
+                                            32 GB RAM
+                                        </li>
+                                    </ul>
+                            </div>
+                        </div>
+                        <div class="facility-item">
+                            <img src="assets/images/nas.png" alt="Network-attached storage (NAS)" class="facility-image">
+                            <div class="facility-info">
+                                <h4 class="facility-title">Network-attached storage (NAS)</h4>
+                                <p class="image-caption">A centralized, high-capacity data storage solution is available to secure and accessible repository for vast geospatial datasets, research archives, and project files.</p>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+                <!-- Ground Based Column (Promoted) -->
+                <div class="card-item facility-main-column ground-based-column">
+                    <div class="card-header-wrapper"> <!-- MODIFIED: Use main header wrapper -->
+                        <h2>Ground Based</h2>
+                    </div>
+                    <div class="column-content-body"> <!-- MODIFIED: Direct content body -->
+                        <div class="facility-item">
+                            <img src="assets/images/trimbler12.jpg" alt="Trimble R12 GNSS Receiver" class="facility-image">
+                            <div class="facility-info">
+                                <h4 class="facility-title">Trimble R12 GNSS Receiver</h4>
+                                <p class="image-caption">A high-precision, robust GNSS receiver used for accurate and reliable geospatial data acquisition in challenging environments, essential for advanced geodetic surveys.</p>
+                            </div>
+                        </div>
+                        <div class="facility-item">
+                            <img src="assets/images/pentaxs.jpg" alt="Total Station (Trimble & Pentax)" class="facility-image">
+                            <div class="facility-info">
+                                <h4 class="facility-title">Total Station (Trimble & Pentax)</h4>
+                                <p class="image-caption">Versatile surveying instruments combining electronic distance measurement and angle measurement for precise topographic mapping, construction layout, and control surveys.</p>
+                            </div>
+                        </div>
+                        <div class="facility-item">
+                            <img src="assets/images/autolevel.jpg" alt="Auto Level" class="facility-image">
+                            <div class="facility-info">
+                                <h4 class="facility-title">Auto Level</h4>
+                                <p class="image-caption">An essential optical leveling instrument used for establishing and verifying horizontal levels, critical for various civil engineering and land surveying projects.</p>
+                            </div>
+                        </div>
+                        <div class="facility-item">
+                            <img src="assets/images/cors12.jpg" alt="CORS Station" class="facility-image">
+                            <div class="facility-info">
+                                <h4 class="facility-title">CORS Station</h4>
+                                <p class="image-caption">A Continuously Operating Reference Station (CORS) provides continuous, This reference station tracks GPS, GLONASS, Galileo, BeiDou, QZSS, and NavIC (IRNSS) signals. The station provides continuous tracking and transmits daily, hourly and high-rate data.</p>
+                                <div style="text-align: left;">
+                                    <p><b>Station status:</b> In-operation (Working on electrical power-supply and LAN connection)</p>
+                                    <div style="text-align: center;">  
+                                        <p class="image-caption" style="font-size: 14px;"><b>ITRF(2014)</b></p>
+                                        <p class="image-caption" style="font-size: 13px;"><b>Latitude:</b> 19° 08’ 20.65”N</p>
+                                        <p class="image-caption" style="font-size: 13px;"><b>Longitude:</b> 72° 55’ 07.97”E</p>
+                                    </div>
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drone Column (now contains Airborne content) -->
+                <div class="card-item facility-main-column drone-column">
+                    <div class="card-header-wrapper">
+                        <h2>UAV Based</h2>
+                    </div>
+                    <div class="column-content-body">
+                        <!-- Moved Airborne content here -->
+                        <div class="facility-item">
+                            <img src="assets/images/djiphantom4.jpg" alt="DJI Phantom 4 Pro" class="facility-image">
+                            <div class="facility-info">
+                                <h4 class="facility-title">DJI Phantom 4 Pro</h4>
+                                <p class="image-caption">A high-resolution aerial imaging and mapping drone equipped with a 1-inch 20MP sensor, ideal for detailed photogrammetry, 3D modeling, and remote sensing applications.</p>
+                            </div>
+                        </div>
+                        <div class="facility-item">
+                            <img src="assets/images/senseFlyeBee.jpg" alt="SenseFly eBee Mapping Drone" class="facility-image">
+                            <div class="facility-info">
+                                <h4 class="facility-title">SenseFly eBee Mapping Drone</h4>
+                                <p class="image-caption">A professional fixed-wing drone designed for efficient and large-scale aerial mapping, capable of delivering high-accuracy orthomosaics, digital elevation models, and 3D models.</p>
+                            </div>
+                        </div>
+                        <div class="facility-item">
+                            <img src="assets/images/dji-350.jpg" alt="Dji Lidar" class="facility-image">
+                            <div class="facility-info">
+                                <h4 class="facility-title">DJI Matrice 350 RTK</h4>
+                                <p class="image-caption">The DJI Matrice 350 RTK is used in geophysics and geodesy for precise aerial surveys, terrain mapping, and subsurface exploration using RTK, LiDAR sensors, multispectral cameras, and magnetometers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer bg-dark text-light">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; font-size: 1rem;">
+        <span>Developed by: Pranav Saxena </span>
+        <span>&copy; 2025 RCG, IIT Bombay. All rights reserved.</span>
+        <span style="font-size: 0.95em;">Last update: Jul-24-2025</span>
+    </div>
+</footer>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<!-- Link to your navbar.js script for modular header -->
+<script src="assets/js/navbar.js"></script>
+<!-- Link to the new external facility-modal.js script -->
+<script src="assets/js/facility-modal.js"></script>
+
+</body>
+</html>

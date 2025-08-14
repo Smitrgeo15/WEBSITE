@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <!-- Custom Global CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style1.css" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong|Roboto:400,700&display=swap">
+
+    <title>RCG | IIT Bombay - Home</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+    }
+
+    .banner img {
+        width: 80%;
+        max-width: 800px;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .main-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* Make top edges align */
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    }
+
+
+    
+    .images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 500px;
+    align-self: flex-start; /* Ensure it stays aligned to top */
+    
+    }
+    .images img {
+        width: 180px;       /* Same width for all */
+        height: 180px; 
+        object-fit: contain;
+        background-color: transparent; /* Keep transparent background */
+        display: block  ;
+    }
+
+    .content {
+        flex: 5;
+        min-width: 300px;
+        text-align: justify;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+
+    .content b {
+        color: #0044aa;
+    }
+</style>
+</head>
+<body>
+
+<!-- Navbar will be loaded here by JavaScript -->
+<div id="navbar-placeholder"></div>
+
+<main>
+    <!-- Welcome Section - Full Breadth -->
+    <section class="hero" style="
+    background: url('assets/images/Pres.gif') center/cover no-repeat;
+    background-color: #002b5c; /* fallback color */
+    width: 100%;
+    height: 100vh; /* full viewport height */
+    opacity: 0.5;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    color: white;
+    text-align: center;
+    padding: 5px 5px;
+    ">
+
+    <!-- <div class="hero-content">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to RCG</h1>
+            <p class="hero-institution">Indian Institute Of Technology, Bombay</p>
+            <p class="hero-description">Department Of Civil Engineering</p>
+            
+        </div> -->
+    </section>
+    <!-- Welcome Section (RCG Co-ordinator & Mission) - Full Breadth -->
+    <!-- <iframe src="https://eyes.nasa.gov/apps/earth/#/vital-signs/gravity-field-map/water-storage-monthly?animating=true&start=2010-01-01&end=2025-05-01" width="35%" height="350" style="border:none;"></iframe>
+    <img src="assets/images/rotating_3d_globe_Geoid_height_px0500_angle360_fps9_BlueWhiteOrangeRed.gif" alt="Cool animation"                                                                > -->
+    <div class="main-section">
+    <!-- Left: Images -->
+    <div class="images">
+        <img src="assets/images/Earth-FlatVsRugged-unscreen.gif" alt="Image 1">
+        <img src="assets/images/rotating-3d-globe-Geoid-height-unscreen.gif" alt="Image 2">
+        <img src="assets/images/1.gif" alt="Image 3">
+        <img src="assets/images/ConstellationGPS-unscreen.gif" alt="Image 4">
+    </div>
+
+    <!-- Right: Text -->
+    <div class="content">
+        <p>
+            The Regional Centre for Geodesy (RCG) at IIT Bombay stands as a key hub for advanced research, education, and innovation in the dynamic and evolving field of Geodesy. The centre is dedicated to deepening our understanding of the Earth’s shape, gravity field, and rotational behavior, along with their changes over time. Using advanced technologies such as GNSS, Satellite Altimetry, and Remote Sensing, RCG addresses critical challenges in areas like crustal deformation monitoring, sea level variations, precise geospatial positioning, and infrastructure development.
+        </p>
+        <p>
+            RCG is committed to fostering a vibrant academic and research environment that supports the development of future geodetic scientists and engineers. Through a mix of training programs, hands-on learning, and academic engagement, the centre encourages innovation and inquiry. By collaborating with national and international organizations, RCG strives to transform cutting-edge research into meaningful solutions that address real-world problems and contribute to both scientific progress and societal benefit.
+        </p>
+        <div class="card-button-container"> <!-- Reusing existing button styling -->
+                <a class="btn btn-primary glow-on-hover" href="about.html">Learn More About RCG</a>
+               <!-- <a class="btn btn-outline-primary glow-on-hover" href="https://www.civil.iitb.ac.in/~ramsankaran/index.html" target="_blank">Prof. Ramsankaran's Profile</a> -->
+            </div>
+    </div>
+</div>
+    <!-- Video and Calendar Section -->
+    <div class="video-calendar-section">
+    <!-- Left: NASA Video -->
+    <div class="video-box">
+        <iframe src="https://eyes.nasa.gov/apps/earth/#/vital-signs/gravity-field-map/water-storage-monthly?animating=true&start=2015-08-01&end=2025-05-01" 
+                width="450" height="300" style="border:none;">
+        </iframe>
+    </div>
+
+    <!-- Right: Calendar -->
+    <div class="calendar-box">
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FKolkata&showPrint=0&src=NjA5ZWI4YjYyNTVkOGRjMjA0MTM5MmIwMTc2NDZjNDAzMmE2MWMxN2MwNjA0NzQxYjQzMDA5YjY5YzMwN2Q4OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23e4c441&color=%230b8043"
+                style="border: 0" width="300" height="300" frameborder="0" scrolling="no">
+        </iframe>
+    </div>
+</div>
+
+<style>
+.video-calendar-section {
+    display: flex;
+    justify-content: space-between; /* Push video to left & calendar to right */
+    align-items: flex-start;
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.video-box {
+    flex: 0 0 auto;
+}
+
+.calendar-box {
+    flex: 0 0 auto;
+}
+</style>
+
+    </section>
+    
+    <!-- Recent Announcements Section - Full Breadth -->
+    <section class="announcements-section">
+        <div class="container">
+            <h2 class="section-heading">Recent Announcements</h2>
+            <!-- Slider Container -->
+            <div id="announcementsSliderContainer" style="position: relative; width: 100%; margin: 30px auto; overflow: hidden; min-height: 80px; transition: min-height 0.3s ease-out;">
+                <!-- Slider Items -->
+                <div class="slider-item" style="position: absolute; width: 100%; top: 0; left: 0; transform: translateX(0%); opacity: 1; transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; padding: 10px 0; text-align: center;">
+                    <p style="margin: 0;"><strong><i class="fas fa-bullhorn me-2"></i>Short Course on "Advanced GNSS Surveying and Mapping", scheduled from May 5th to 7th, 2025.</strong></p>
+                    <a href="#" class="read-more-btn" data-target="full-content-0" role="button" style="color: #0a91da; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read More</a>
+                    <div id="full-content-0" class="full-content" style="display: none; margin-top: 10px;">
+                        <p style="margin: 0; text-align: center;"><small>For more information and registration, please refer the <a href="assets/pdf/GNSS Brochure.pdf" download="GNSS Brochure" style="color: #0a91da; text-decoration: underline;">course brochure.</a></small></p>
+                        <a href="#" class="read-less-btn" role="button" style="color: #022335; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read Less</a>
+                    </div>
+                </div>
+               <!--  <div class="slider-item" style="position: absolute; width: 100%; top: 0; left: 0; transform: translateX(100%); opacity: 0; transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; padding: 10px 0; text-align: center;">
+                    <p style="margin: 0;"><strong><i class="fas fa-newspaper me-2"></i>IIT Bombay Hosts National Workshop on Advanced Geodetic Techniques - Successful Conclusion!</strong></p>
+                    <a href="#" class="read-more-btn" data-target="full-content-1" role="button" style="color: #0a91da; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read More</a>
+                    <div id="full-content-1" class="full-content" style="display: none; margin-top: 10px;">
+                        <p style="margin: 0; text-align: center;"><small>A two-day workshop held on April 28-29, 2025, brought together experts and researchers to discuss the latest advancements in geodetic methodologies and their applications.</small></p>
+                        <a href="#" class="read-less-btn" role="button" style="color: #022335; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read Less</a>
+                    </div>
+                </div>
+                <div class="slider-item" style="position: absolute; width: 100%; top: 0; left: 0; transform: translateX(100%); opacity: 0; transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; padding: 10px 0; text-align: center;">
+                    <p style="margin: 0;"><strong><i class="fas fa-flask me-2"></i>RCG Researchers Publish Breakthrough Paper on Satellite-Based Sea Level Monitoring in 'Journal of Geodesy'.</strong></p>
+                    <a href="#" class="read-more-btn" data-target="full-content-2" role="button" style="color: #0a91da; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read More</a>
+                    <div id="full-content-2" class="full-content" style="display: none; margin-top: 10px;">
+                        <p style="margin: 0; text-align: center;"><small>The new study provides critical insights into regional sea level trends, contributing to global climate change assessments.</small></p>
+                        <a href="#" class="read-less-btn" role="button" style="color: #022335; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read Less</a>
+                    </div>
+                </div>
+                <div class="slider-item" style="position: absolute; width: 100%; top: 0; left: 0; transform: translateX(100%); opacity: 0; transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; padding: 10px 0; text-align: center;">
+                    <p style="margin: 0;"><strong><i class="fas fa-users me-2"></i>Call for Applications: Postdoctoral Fellowships in Geodetic Data Analysis at IIT Bombay RCG - Apply by July 15, 2025.</strong></p>
+                    <a href="#" class="read-more-btn" data-target="full-content-3" role="button" style="color: #0a91da; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read More</a>
+                    <div id="full-content-3" class="full-content" style="display: none; margin-top: 10px;">
+                        <p style="margin: 0; text-align: center;"><small>Exciting opportunities for young researchers to contribute to cutting-edge projects in geodesy.</small></p>
+                        <a href="#" class="read-less-btn" role="button" style="color: #022335; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read Less</a>
+                    </div>
+                </div>
+                <div class="slider-item" style="position: absolute; width: 100%; top: 0; left: 0; transform: translateX(100%); opacity: 0; transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; padding: 10px 0; text-align: center;">
+                    <p style="margin: 0;"><strong><i class="fas fa-handshake me-2"></i>RCG Collaborates with ISRO on Next-Generation GNSS Augmentation System.</strong></p>
+                    <a href="#" class="read-more-btn" data-target="full-content-4" role="button" style="color: #0a91da; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read More</a>
+                    <div id="full-content-4" class="full-content" style="display: none; margin-top: 10px;">
+                        <p style="margin: 0; text-align: center;"><small>This partnership aims to enhance the precision and reliability of satellite navigation systems across India.</small></p>
+                        <a href="#" class="read-less-btn" role="button" style="color: #022335; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read Less</a>
+                    </div>
+                </div>
+                <div class="slider-item" style="position: absolute; width: 100%; top: 0; left: 0; transform: translateX(100%); opacity: 0; transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; padding: 10px 0; text-align: center;">
+                    <p style="margin: 0;"><strong><i class="fas fa-chalkboard-teacher me-2"></i>Distinguished Lecture Series: Dr. Anya Sharma on 'Future of Geodesy in Smart Cities' - June 20, 2025.</strong></p>
+                    <a href="#" class="read-more-btn" data-target="full-content-5" role="button" style="color: #0a91da; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read More</a>
+                    <div id="full-content-5" class="full-content" style="display: none; margin-top: 10px;">
+                        <p style="margin: 0; text-align: center;"><small>Join us for an insightful session on the evolving role of geodesy in urban planning and development.</small></p>
+                        <a href="#" class="read-less-btn" role="button" style="color: #022335; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">Read Less</a>
+                    </div>
+                </div> -->
+            </div>
+            <h2 class="section-heading" style="font-size: 25px;"> Past Announcements</h2>
+            <div id="announcementsSliderContainer" style="position: relative; width: 100%; margin: 30px auto; overflow: hidden; min-height: 80px; transition: min-height 0.3s ease-out;">
+                <!-- Slider Items -->
+                <div class="slider-item" style="position: absolute; width: 100%; top: 0; left: 0; transform: translateX(0%); opacity: 1; transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; padding: 10px 0; text-align: center;">
+                    <p style="margin: 0;"><strong><i class="fas fa-bullhorn me-2"></i>Short Course on "GNSS Surveying: Basic Theory and Practice", scheduled from May 17th to 18th, 2024.</strong></p>
+                    <a href="#" class="read-more-btn" data-target="full-content-0" role="button" style="color: #0a91da; cursor: pointer; font-weight: bold; margin-top: 10px; display: inline-block; text-decoration: none; transition: text-decoration 0.2s ease;">
+                    </div>
+                </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer bg-dark text-light">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; font-size: 1rem;">
+        <span>Developed by: Pranav Saxena </span>
+        <span>&copy; 2025 RCG, IIT Bombay. All rights reserved.</span>
+        <span style="font-size: 0.95em;">Last update: Jul-24-2025</span>
+    </div>
+</footer>
+
+
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<!-- Link to your navbar.js script for modular header -->
+<script src="assets/js/navbar.js"></script>
+<!-- Link to the new announcement slider script -->
+<script src="assets/js/announcement-slider.js"></script>
+
+<!-- New JS for Hero animation -->
+<script src="assets/js/hero-animation.js"></script>
+
+
+</body>
+</html>

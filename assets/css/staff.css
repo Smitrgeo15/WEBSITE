@@ -1,0 +1,242 @@
+/* Staff Page Specific Styles */
+
+/* Main section for the Staff page, taking full breadth */
+.staff-section {
+    width: 100%;
+    padding: 60px 0; /* Vertical padding for the section */
+    background-color: #f8f9fa; /* Light background for the section */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+    margin-bottom: 0; /* Ensures no extra margin below the section */
+}
+
+/* Container for the grid of staff members */
+.staff-grid {
+    display: grid; /* Use CSS Grid for robust responsive layout */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Responsive columns, min width 350px */
+    gap: 30px; /* Space between grid items */
+    justify-content: center; /* Center the grid items horizontally if there's extra space */
+    align-items: stretch; /* Ensures all grid items stretch to the same height */
+    padding-top: 20px; /* Space below the main heading */
+}
+
+/* Styles for an individual staff member's card */
+.staff-member-card {
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    overflow: hidden; /* Ensures content respects border-radius */
+    display: flex; /* Flexbox for internal layout */
+    flex-direction: column; /* Stack image and content vertically on small screens */
+    align-items: center; /* Center content horizontally within the card */
+    padding: 35px; /* Increased padding inside the card for more breathing room */
+    text-align: center; /* Center text globally */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Smooth hover effect */
+    height: 100%; /* Important for aligning grid items */
+    position: relative; /* For pseudo-elements */
+}
+
+.staff-member-card:hover {
+    transform: translateY(-8px); /* Lifts the card on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+/* --- Optional Hover Effects (Shine) --- */
+.staff-member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Cover the entire card */
+    background-color: rgba(10, 145, 218, 0.05); /* Very light blue overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    border-radius: 12px;
+    z-index: 1; /* Above card content, below shine */
+}
+
+.staff-member-card:hover::before {
+    opacity: 1;
+}
+
+.staff-member-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start off-screen */
+    width: 50%; /* Width of the shine */
+    height: 100%; /* Cover the entire card */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%); /* Slightly more subtle shine opacity */
+    transform: skewX(-20deg); /* Angle the shine */
+    transition: left 0.6s ease-out; /* Smooth movement */
+    z-index: 2; /* Above the overlay */
+    pointer-events: none; /* Allows clicks to pass through */
+    border-radius: 12px;
+}
+
+.staff-member-card:hover::after {
+    left: 100%; /* Move across to the right */
+}
+
+/* Image for the staff member */
+.staff-image-wrapper {
+    flex-shrink: 0; /* Prevents image from shrinking */
+    width: 160px; /* Fixed width for the image container */
+    height: 160px; /* Fixed height for the image container */
+    border-radius: 50%; /* Makes the image container circular */
+    overflow: hidden; /* Clips image to the circle */
+    margin-bottom: 28px; /* Increased space below image */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow for the circular image */
+    border: 3px solid #0a91da; /* Blue border around the image */
+    position: relative; /* For z-index to work with pseudo elements */
+    z-index: 3; /* Ensure image is above pseudo elements */
+}
+
+.staff-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the circular space */
+    display: block; /* Remove extra space */
+    transition: transform 0.3s ease; /* Smooth zoom on hover */
+}
+
+.staff-member-card:hover .staff-image {
+    transform: scale(1.1); /* Slight zoom on image when card is hovered */
+}
+
+
+/* Content area for staff details */
+.staff-content {
+    flex-grow: 1; /* Allows content to take available space */
+    width: 100%; /* Ensure content takes full width within its card */
+    position: relative; /* For z-index */
+    z-index: 3; /* Ensure text is above pseudo elements */
+}
+
+/* Name of the staff member */
+.staff-name {
+    font-family: 'Trirong', sans-serif;
+    font-size: 1.6em; /* Slightly larger name */
+    color: #022335;
+    font-weight: bold;
+    margin-bottom: 8px; /* Increased space below name */
+    line-height: 1.2;
+}
+
+/* Title/Role of the staff member */
+.staff-title {
+    font-size: 1.05em; /* Slightly larger title font */
+    color: #555;
+    margin-bottom: 20px; /* Increased space below title */
+    display: block; /* Ensure it's a block element */
+}
+
+/* Contact information (email, phone, homepage) */
+.contact-info {
+    font-size: 0.95em; /* Consistent font size for contact info */
+    color: #444;
+    line-height: 2; /* Increased line height for better separation */
+    margin-top: 20px; /* Space above contact info */
+    padding-top: 15px; /* Padding at top of contact block */
+    border-top: 1px solid #eee; /* Separator line */
+    text-align: left; /* Align contact info to the left */
+    width: 100%; /* Ensure it spans full width */
+    display: flex; /* Use flexbox for the container */
+    flex-direction: column; /* Stack contact items */
+}
+
+.contact-info span {
+    display: flex; /* Use flex for icon and text alignment */
+    align-items: center; /* Vertically align icon and text */
+    margin-bottom: 5px; /* Space between each contact line */
+}
+
+.contact-info span:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info .fa {
+    color: #0a91da; /* Blue icon color */
+    margin-right: 12px; /* More space between icon and text */
+    width: 25px; /* Fixed width for icons for better alignment */
+    text-align: center; /* Center icon within its space */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    font-size: 1.1em; /* Slightly larger icons */
+}
+
+.contact-info a {
+    color: #0a91da;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+    color: #022335;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) { /* Tablets and smaller desktops */
+    .staff-section {
+        padding: 40px 0;
+    }
+    .staff-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust min-width */
+        gap: 25px;
+    }
+    .staff-member-card {
+        padding: 25px;
+    }
+    .staff-image-wrapper {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 20px;
+    }
+    .staff-name {
+        font-size: 1.4em; /* Adjusted name size */
+    }
+    .staff-title {
+        font-size: 1em;
+    }
+    .contact-info {
+        font-size: 0.9em;
+    }
+    .staff-member-card::before,
+    .staff-member-card::after {
+        height: 100%; /* Adjust for consistent sizing */
+    }
+}
+
+@media (max-width: 767px) { /* Mobile specific adjustments */
+    .staff-section {
+        padding: 30px 0;
+    }
+    .staff-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 20px;
+    }
+    .staff-member-card {
+        padding: 20px;
+    }
+    .staff-image-wrapper {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 15px;
+    }
+    .staff-name {
+        font-size: 1.25em; /* Adjusted name size */
+    }
+    .staff-title {
+        font-size: 0.9em;
+    }
+    .contact-info {
+        font-size: 0.85em;
+        line-height: 1.6;
+    }
+    .contact-info .fa {
+        font-size: 1em;
+        width: 18px; /* Smaller icon width for mobile */
+        margin-right: 8px;
+    }
+}

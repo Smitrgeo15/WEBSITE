@@ -1,0 +1,226 @@
+/* Activities Page Specific Styles */
+.centered-year-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: 'Trirong', serif;
+    color: #1f3e81;
+    margin: 2.5rem auto 1.5rem auto;
+    text-align: center;
+    border-bottom: 2px solid #1f44ca;
+    width: fit-content;
+    padding-bottom: 6px;
+    letter-spacing: 1px;
+  }
+  
+  .centered-year-heading i {
+    font-size: 1.7rem;
+    color: #ff6b00;
+    transition: transform 0.3s ease;
+  }
+  
+  .centered-year-heading:hover i {
+    transform: scale(1.2);
+  }
+  
+  
+/* Main flex container for the two large sections (R&D and Outreach) */
+.activities-main-flex-container {
+    display: flex; /* Enable flexbox for side-by-side layout */
+    flex-direction: row; /* Default to side-by-side on larger screens */
+    flex-wrap: wrap; /* Allow sections to wrap to the next line on smaller screens */
+    gap: 30px; /* Space between the two main section cards */
+    justify-content: center; /* Center the main cards horizontally */
+    align-items: flex-start; /* MODIFIED: Align items to the start, so boxes only take content height */
+    width: 100%; /* Take full width of its parent (.container) */
+    padding-top: 20px; /* Space below the main heading */
+}
+
+/* Styles for each of the two main section cards (R&D and Outreach) */
+.activity-sub-section {
+    flex: 1 1 calc(50% - 15px); /* Allows two columns with a gap */
+    max-width: calc(50% - 15px); /* Max width for two columns */
+    min-width: 300px; /* Minimum width before responsive adjustments (stacking) */
+    height: auto; /* Allow height to be determined by content */
+    background-color: #ffffff; /* Card background */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    display: flex; /* Make it a flex container for its header and body */
+    flex-direction: column; /* Stack header and content vertically */
+}
+
+.activity-sub-section:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Content body within the activity sub-sections */
+.activity-sub-section .welcome-content-body {
+    padding: 20px; /* MODIFIED: Reduced padding for tighter fit */
+    display: flex;
+    flex-direction: column; /* Stacks individual activity blocks vertically */
+    gap: 15px; /* Reduced space between individual activity blocks */
+    flex-grow: 1; /* Allows the content area to fill remaining vertical space */
+}
+
+/* Styles for each individual activity block (image + text) */
+.activity-card-content {
+    border-radius: 8px; /* Slightly rounded corners for inner content block */
+    overflow: hidden; /* Ensures image and text respect rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow for inner blocks */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    position: relative; /* Needed for ::before and ::after pseudo-elements */
+    background-color: #fcfcfc; /* Very light background for distinction */
+    border: 1px solid #eee; /* Light border */
+    min-height: 280px; /* Minimum height for the inner box */
+}
+
+.activity-card-content:hover {
+    transform: translateY(-5px); /* Lifts the inner block on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+}
+
+/* Overlay effect on hover for inner activity content (::before) */
+.activity-card-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Cover full height of the parent .activity-card-content */
+    background-color: rgba(10, 145, 218, 0.1); /* Lighter blue overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    z-index: 1; /* Above image, below shine */
+}
+
+.activity-card-content:hover::before {
+    opacity: 1;
+}
+
+/* Lightning/Shine effect on hover for inner activity content (::after) */
+.activity-card-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start off-screen to the left */
+    width: 50%; /* Width of the shine */
+    height: 100%; /* Cover full height of the parent .activity-card-content */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg); /* Angle the shine */
+    transition: left 0.6s ease-out; /* Smooth movement across the image */
+    z-index: 2; /* Above the overlay */
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+.activity-card-content:hover::after {
+    left: 100%; /* Move across to the right */
+}
+
+/* Styles for the image within each individual activity block */
+.activity-content-image {
+    width: 100%;
+    height: 180px; /* Fixed height for consistent image size */
+    object-fit: contain; /* Ensures images are fully visible, no cropping */
+    display: block; /* Removes extra space below image */
+    border-bottom: 1px solid #eee; /* Subtle separator from title */
+    transition: transform 0.3s ease; /* Smooth zoom effect on image */
+    position: relative; /* Ensure it's under pseudo-elements */
+    z-index: 0;
+    background-color: #f0f0f0; /* Add a background for contained images with transparent areas */
+}
+
+.activity-card-content:hover .activity-content-image {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Styles for the text content within each individual activity block */
+.activity-content-text {
+    padding: 20px; /* Add vertical padding too for centering */
+    text-align: center;
+    flex-grow: 1; /* Allows this section to grow and take available space */
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack vertically */
+    justify-content: center; /* Vertically center the title */
+    align-items: center; /* Horizontally centers the text */
+}
+
+/* Styles for the title within each individual activity block */
+.activity-content-title {
+    font-family: 'Trirong', sans-serif;
+    font-size: 0.85em; /* Smaller title size for inner blocks */
+    color: #022335;
+    margin-bottom: 0; /* Remove bottom margin */
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+/* Removed .activity-content-description styles as the paragraph is removed */
+
+
+/* Responsive adjustments */
+@media (max-width: 991px) { /* Tablets and smaller desktops */
+    .activities-main-flex-container {
+        flex-direction: column; /* Stack main cards vertically */
+        align-items: center; /* Center them when stacked */
+        gap: 25px; /* Adjust gap */
+    }
+    .activity-sub-section {
+        flex: 1 1 100%; /* Take full width when stacked */
+        max-width: 100%; /* Max width for full stacking */
+        min-width: unset; /* Remove min-width constraint */
+    }
+    .activity-sub-section .welcome-content-body {
+        padding: 15px; /* MODIFIED: Reduced padding for tablets */
+        gap: 15px; /* Keep reduced gap */
+    }
+    .activity-card-content {
+        min-height: 250px; /* Adjusted min-height for tablets */
+    }
+    .activity-content-image {
+        height: 160px; /* Adjust image height for tablets */
+        margin-bottom: 10px;
+    }
+    .activity-content-title {
+        font-size: 1.05em;
+    }
+    /* Adjust pseudo-elements height for responsive images */
+    .activity-card-content::before,
+    .activity-card-content::after {
+        height: 100%; /* Cover full height */
+    }
+    .activity-content-text {
+        padding: 15px; /* Adjust padding for text on tablets */
+    }
+}
+
+@media (max-width: 767px) { /* Mobile specific adjustments */
+    .activities-main-flex-container {
+        gap: 20px; /* Further reduced gap */
+    }
+    .activity-sub-section .welcome-content-body {
+        padding: 10px; /* MODIFIED: Reduced padding for mobile */
+        gap: 15px; /* Keep reduced gap */
+    }
+    .activity-card-content {
+        min-height: 220px; /* Adjusted min-height for mobile */
+    }
+    .activity-content-image {
+        height: 180px; /* Taller image for single column on mobile */
+    }
+    .activity-content-title {
+        font-size: 1em;
+    }
+    /* Adjust pseudo-elements height for responsive images */
+    .activity-card-content::before,
+    .activity-card-content::after {
+        height: 100%; /* Cover full height */
+    }
+    .activity-content-text {
+        padding: 10px; /* Adjust padding for text on mobile */
+    }
+}

@@ -1,0 +1,228 @@
+/* Gallery Page Specific Styles */
+
+.gallery-page-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.gallery-heading {
+    font-family: 'Trirong', sans-serif;
+    font-size: 2.2em;
+    color: #022335;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.gallery-heading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #0a91da;
+    border-radius: 5px;
+}
+
+.image-gallery-grid {
+    display: grid; /* Use CSS Grid for powerful layout */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid columns */
+    gap: 30px; /* Space between grid items */
+    justify-content: center; /* Center items in the grid */
+    align-items: stretch; /* Make items stretch to equal height if needed */
+}
+
+.gallery-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* Slightly more prominent initial shadow */
+    overflow: hidden; /* Ensures image and caption respect rounded corners */
+    display: flex;
+    flex-direction: column;
+    cursor: pointer; /* Indicate clickable item */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px); /* Increased lift on hover */
+    /* Enhanced shadow for "special lighting" effect */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 30px rgba(10, 145, 218, 0.7); /* Larger shadow + blue glow */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 220px; /* Fixed height for gallery images to ensure equal visual alignment */
+    object-fit: cover; /* Crop to fit, ensuring images fill their space */
+    display: block;
+    transition: transform 0.3s ease; /* Smooth zoom on hover */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 767px) {
+    .image-gallery-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 20px;
+    }
+    .gallery-item img {
+        height: 250px; /* Slightly taller images on mobile when stacked */
+    }
+    .gallery-heading {
+        font-size: 1.8em;
+    }
+}
+
+
+/* NEW: Image Modal Styles - REVISED FOR ENHANCED EFFECTS */
+.modal-overlay {
+    display: flex;
+    position: fixed;
+    z-index: 9999; /* Higher z-index to ensure it's on top of everything */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95); /* MODIFIED: Darker, more opaque background */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(12px); /* MODIFIED: Stronger blur effect */
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out; /* Smooth fade-in/out */
+    opacity: 0; /* Start hidden for transition */
+    visibility: hidden; /* Hide completely when not active */
+}
+
+.modal-overlay.active {
+    opacity: 1; /* Fade in */
+    visibility: visible; /* Show */
+}
+
+.modal-content {
+    position: relative;
+    background-color: #022335; /* MODIFIED: Darker background for the modal content box */
+    padding: 30px; /* MODIFIED: More padding */
+    border-radius: 15px; /* MODIFIED: More rounded corners */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 40px rgba(10, 145, 218, 0.8); /* MODIFIED: Richer shadow + blue glow */
+    animation-name: modalPopIn; /* MODIFIED: New animation name */
+    animation-duration: 0.4s; /* MODIFIED: Slightly longer animation */
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55); /* MODIFIED: Bounce effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 95%; /* MODIFIED: Max width relative to viewport */
+    max-height: 95vh; /* MODIFIED: Max height relative to viewport */
+    overflow: hidden;
+    border: 2px solid #0a91da; /* MODIFIED: Subtle border */
+}
+
+/* MODIFIED: New Keyframes for a more attractive pop-in */
+@keyframes modalPopIn {
+    0% {
+        transform: scale(0.7) translateY(50px);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.05) translateY(-5px);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 70vh; /* MODIFIED: Adjusted max height for the image */
+    height: auto;
+    display: block;
+    border-radius: 10px; /* MODIFIED: More rounded corners for the image */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); /* Image shadow */
+    object-fit: contain;
+    border: 3px solid rgba(10, 145, 218, 0.5); /* MODIFIED: Subtle border around the image */
+    transform: scale(1); /* Initial state for potential animation */
+    transition: transform 0.3s ease; /* Smooth transition for image itself */
+}
+
+/* Optional: Slight transform on image within modal for more dynamic feel (if desired) */
+/* .modal-overlay.active .modal-content img {
+    transform: scale(0.98);
+} */
+
+
+.modal-caption {
+    color: #fefefe;
+    text-align: center;
+    margin-top: 20px; /* MODIFIED: More spacing from image */
+    font-size: 1.15em; /* MODIFIED: Slightly larger font */
+    background-color: rgba(0, 0, 0, 0.7); /* MODIFIED: Slightly more opaque caption background */
+    padding: 10px 20px; /* MODIFIED: More padding */
+    border-radius: 8px; /* MODIFIED: More rounded corners */
+    max-width: 90%;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    line-height: 1.5; /* Improved readability */
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #fefefe;
+    font-size: 45px; /* MODIFIED: Even larger size */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 1); /* MODIFIED: Stronger text shadow */
+    z-index: 2001; /* Ensure close button is clickable */
+    background-color: rgba(2, 35, 53, 0.7); /* MODIFIED: Background for button */
+    border-radius: 50%; /* Make it round */
+    width: 50px; /* MODIFIED: Fixed size */
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #0a91da; /* MODIFIED: Blue border */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #0a91da; /* Highlight color on hover/focus */
+    transform: scale(1.2) rotate(90deg); /* Spin effect on hover */
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: 0 0 25px #0a91da; /* MODIFIED: Glow on hover */
+    background-color: rgba(2, 35, 53, 0.9); /* MODIFIED: Slightly darker background on hover */
+}
+
+/* Adjustments for smaller screens for modal */
+@media (max-width: 767px) {
+    .modal-content {
+        padding: 15px; /* MODIFIED: Adjusted padding */
+        max-width: 95%;
+        max-height: 95vh;
+        border-radius: 10px; /* MODIFIED: Smaller border-radius on mobile */
+    }
+    .modal-content img {
+        max-height: 65vh; /* MODIFIED: Adjusted max height */
+        border-radius: 8px; /* MODIFIED: Smaller border-radius on mobile */
+    }
+    .close-button {
+        font-size: 30px;
+        top: 10px;
+        right: 15px;
+        width: 40px; /* MODIFIED: Smaller size on mobile */
+        height: 40px;
+    }
+    .modal-caption {
+        font-size: 0.95em; /* MODIFIED: Slightly larger font for mobile caption */
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+}
