@@ -36,7 +36,7 @@
     justify-content: center; /* Center the main cards horizontally */
     align-items: flex-start; /* MODIFIED: Align items to the start, so boxes only take content height */
     width: 100%; /* Take full width of its parent (.container) */
-    padding-top: 100px; /* Space below the main heading */
+    padding-top: 60px; /* Space below the main heading */
 }
 
 /* Styles for each of the two main section cards (R&D and Outreach) */
