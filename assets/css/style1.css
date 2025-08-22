@@ -382,9 +382,12 @@ main {
 /* Homepage Sections - Full Breadth (These are now for content *below* the hero banner) */
 .welcome-section, /* Now used for 'About RCG' content block */
 .announcements-section {
-    width: 100%;
-    padding: 60px 0; /* Vertical padding for sections */
-    margin-bottom: 0; /* No margin between sections, use padding instead */
+    width: 124%;
+    padding-top: 11px;
+    padding-right: 0px;
+    padding-bottom: 60px;
+    padding-left: 0px; /* Vertical padding for sections */
+    margin-bottom: 0; /* No margin between sections, use padding instead */ /* No margin between sections, use padding instead */
 }
 
 .welcome-section {
