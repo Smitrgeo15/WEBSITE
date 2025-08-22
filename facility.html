@@ -12,161 +12,447 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-    <!-- Custom Global CSS (must load first for shared styles) -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style1.css" />
-
-    <!-- Facilities Page Specific CSS (loads after global CSS) -->
-    <link rel="stylesheet" type="text/css" href="assets/css/facility.css" />
-
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <!-- Custom Global CSS (must load first for shared styles) -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style1.css" />
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong|Roboto:400,700&display=swap">
 
     <title>RCG | IIT Bombay - Facilities</title>
+
+    <style>
+        /* Facilities Page Specific Styles */
+        .facility-section {
+            padding: 60px 0;
+            background-color: #f0f4f8;
+            text-align: center;
+        }
+
+        /* Centering for the heading container */
+        .section-heading-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Styling for the main "Our Facilities" heading */
+        .section-heading {
+            font-family: 'Trirong', sans-serif;
+            font-size: 2.5em;
+            color: #022335;
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            position: relative; /* Required for the pseudo-element */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* Subtle text shadow */
+
+        }
+        /* The new animated underline */
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            transform: translateX(-50%); /* Start with no width */
+            height: 4px;
+            bottom: 0;
+            left: 50%;
+            border-radius: 5px;
+            background-color: #0a91da; /* The color of the line on hover */
+            box-shadow: 0 0 15px rgba(10, 145, 218, 0.6);
+            transition: width 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+
+        .section-heading:hover::after {
+            width: 150px; /* MODIFIED: Expand underline on hover */
+            box-shadow: 0 0 25px rgba(10, 145, 218, 0.9); /* MODIFIED: Stronger glow on hover */
+        }
+
+
+        .main-facilities-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px; /* Space between main columns */
+            justify-content: center;
+            align-items: flex-start; /* Align columns to the top */
+            margin-top: 40px; /* Space below section heading */ /* Make columns equal height */
+        }
+
+        /* Styles for the 2 main columns */
+        .facility-main-column {
+            flex: 1 1 calc(33.33% - 20px); /* Three columns with gaps */
+            background-color: #ffffff; /* White background for main columns */
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Subtle shadow for main columns */
+            overflow: hidden; /* Ensures content respects border-radius */
+            display: flex;
+            flex-direction: column; /* Stack header and content */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect for main columns */
+        }
+
+        .facility-main-column:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), 0 0 30px rgba(10, 145, 218, 0.5);
+        }
+        
+        .column-content-body {
+            padding-top: 0px;
+            padding-right: 30px;
+            padding-bottom: 30px;
+            padding-left: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            flex-grow: 1;
+        }
+
+        /* Styles for the main column headers */
+        .card-header-wrapper {
+            background-color: #031526;
+            color: #ffffff;
+            padding: 15px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .card-header-wrapper:hover {
+            background-color: #0a91da; /* A slightly lighter blue */
+            transform: scale(1.03); /* A slight zoom effect */
+            cursor: pointer;
+        }
+
+        .card-header-wrapper h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-family: 'Trirong', serif;
+        }
+
+        /* Wrapper for the side-by-side sub-columns */
+        .sub-columns-wrapper {
+            display: flex;
+            gap: 20px; /* Space between Ground and Airborne columns */
+            flex-grow: 1;
+            flex-wrap: wrap; /* Allows sub-columns to stack on narrow screens */
+        }
+
+        /* Styling for each sub-column */
+        .sub-column {
+            flex: 1; /* Each sub-column takes half the space */
+            min-width: 250px;
+            background: #f9f9f900;
+            flex-direction: column;
+            gap: 25px; /* Space between cards inside a sub-column */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .sub-column:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Header for sub-columns */
+        .sub-column-header {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #0d2c4a;
+            text-align: center;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #0a91da;
+            margin-bottom: 0; /* Remove bottom margin to use gap */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sub-column-header:hover {
+            transform: scale(1.03);
+            border-bottom-color: #022335; /* Darker border on hover */
+        }
+
+        /* Styling for individual facility items as cards */
+        .facility-item {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e9ecef;
+            height: auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex-grow: 1; /* Make cards in a column equal height */
+        }
+
+        .facility-item:hover {
+            transform: translateY(0px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .facility-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0px 0px 0;
+            background-color: #fdfdfd00;
+        }
+
+        .facility-info {
+            padding: 8px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+        }
+
+        .facility-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            color: #022335;
+            margin-bottom: 8px;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .image-caption {
+            font-size: 0.85em;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* Responsive adjustments */
+@media (max-width: 991px) { /* Tablets and smaller desktops */
+    .main-facilities-container {
+        flex-direction: column; /* Stack main columns vertically */
+        align-items: center;
+        gap: 25px; /* Adjust gap */
+    }
+    .facility-main-column {
+        flex: 1 1 100%; /* Take full width when stacked */
+        max-width: 100%;
+        min-width: unset; /* Remove min-width constraint */
+        transform: none; /* Disable hover transform on smaller screens */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Simpler shadow on touch devices */
+    }
+    .facility-main-column:hover {
+        transform: none;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0);
+    }
+
+    .column-content-body {
+        padding: 15px; /* Adjust padding */
+        gap: 15px; /* Adjust gap */
+    }
+
+    .survey-sub-columns-wrapper {
+        flex-direction: column; /* Ensure sub-columns stack */
+        gap: 15px;
+    }
+    .survey-sub-column {
+        transform: none; /* Disable hover transform on smaller screens */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Simpler shadow on touch devices */
+    }
+    .survey-sub-column:hover {
+        transform: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    .sub-column-header {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+    .sub-column-content-body {
+        padding: 0 10px 10px 10px;
+        gap: 10px;
+    }
+    .facility-item {
+        transform: none; /* Disable hover transform on smaller screens */
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* Simpler shadow on touch devices */
+    }
+    .facility-item:hover {
+        transform: none;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    }
+    .facility-image {
+        height: 140px; /* Adjust image height */
+    }
+    .facility-info {
+        padding: 12px;
+    }
+    .facility-title {
+        font-size: 1em;
+    }
+    .image-caption {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 767px) { /* Mobile specific adjustments */
+    .facility-section {
+        padding: 40px 0;
+    }
+    .main-facilities-container {
+        gap: 20px;
+    }
+    .column-content-body {
+        padding: 10px;
+        gap: 10px;
+    }
+    .sub-column-header {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+    .sub-column-content-body {
+        padding: 0 8px 8px 8px;
+        gap: 8px;
+    }
+    .facility-image {
+        height: 120px; /* Further adjust image height for mobile */
+    }
+    .facility-info {
+        padding: 10px;
+    }
+    .facility-title {
+        font-size: 0.9em;
+    }
+    .image-caption {
+        font-size: 0.75em;
+    }
+    /* Reduce image-to-caption gap */
+    .facility-image[alt="SenseFly eBee Mapping Drone"],
+    .facility-image[alt="Dji Lidar"] {
+    margin-bottom: 0px; /* smaller gap under image */
+}
+
+    /* Reduce overall item spacing */
+    .facility-item.reduce-space {
+    margin-bottom: 0px; /* tighten vertical space between cards */
+}
+
+}
+</style>
 </head>
 <body>
-
-<!-- Navbar will be loaded here by JavaScript -->
-<div id="navbar-placeholder"></div>
 
 <main>
     <!-- Facilities Section - Full Breadth -->
     <section class="facility-section">
         <div class="container">
-            <h2 class="section-heading">Our Facilities</h2>
+            <div class="section-heading-container">
+                <h1 class="section-heading">Our Facilities</h1>
+            </div> 
 
             <div class="main-facilities-container">
-                <!-- Computational Column -->
-                <div class="card-item facility-main-column computational-column">
+                <!-- START: Column 1 - Computational Facilities -->
+                <div class="facility-main-column computational-column">
                     <div class="card-header-wrapper">
-                        <h2>Computational</h2>
+                        <h2>Computational Facilities</h2>
                     </div>
                     <div class="column-content-body">
                         <div class="facility-item">
                             <img src="assets/images/cloudstation.jpg" alt="GNSS Data Processing Workstation" class="facility-image">
                             <div class="facility-info">
                                 <h4 class="facility-title">GNSS Data Processing Workstation</h4>
-                                <p class="image-caption">Powerful computing setup optimized for post-processing raw GNSS data, enabling precise coordinate determination, geodetic analysis, and crustal deformation studies.</p>
-                                    ,<strong style="color:#4682b4;" >Pixaarnet Workstation-3 Nos.</strong>
-                                    <ul> 
-                                        <li>
-                                            i9 Powered Computers
-                                        </li>
-                                        <li>
-                                            32 GB RAM
-                                        </li>
-                                    </ul>
+                                <p class="image-caption">Powerful computing setup optimized for post-processing raw GNSS data, enabling precise coordinate determination and geodetic analysis.</p>
+                                <strong style="color:#4682b4; font-size: 0.9em; text-align: left; width: 100%; margin-top: 10px;" >Pixaarnet Workstation-3 Nos.</strong>
+                                <ul style="text-align: left; font-size: 0.9em; color: #555; padding-left: 20px; margin-top: 5px;"> 
+                                    <li>i9 Powered Computers</li>
+                                    <li>32 GB RAM</li>
+                                </ul>
                             </div>
                         </div>
                         <div class="facility-item">
                             <img src="assets/images/nas.png" alt="Network-attached storage (NAS)" class="facility-image">
                             <div class="facility-info">
                                 <h4 class="facility-title">Network-attached storage (NAS)</h4>
-                                <p class="image-caption">A centralized, high-capacity data storage solution is available to secure and accessible repository for vast geospatial datasets, research archives, and project files.</p>
+                                <p class="image-caption">A centralized, high-capacity data storage solution for vast geospatial datasets, research archives, and project files.</p>
                             </div>
                         </div>
-                        
-                        
                     </div>
                 </div>
+                <!-- END: Column 1 -->
 
-                <!-- Ground Based Column (Promoted) -->
-                <div class="card-item facility-main-column ground-based-column">
-                    <div class="card-header-wrapper"> <!-- MODIFIED: Use main header wrapper -->
-                        <h2>Ground Based</h2>
+                <!-- START: Column 2 - Field Instruments -->
+                <div class="facility-main-column field-instruments-column">
+                    <div class="card-header-wrapper">
+                        <h2>Field Instruments</h2>
                     </div>
-                    <div class="column-content-body"> <!-- MODIFIED: Direct content body -->
-                        <div class="facility-item">
-                            <img src="assets/images/trimbler12.jpg" alt="Trimble R12 GNSS Receiver" class="facility-image">
-                            <div class="facility-info">
-                                <h4 class="facility-title">Trimble R12 GNSS Receiver</h4>
-                                <p class="image-caption">A high-precision, robust GNSS receiver used for accurate and reliable geospatial data acquisition in challenging environments, essential for advanced geodetic surveys.</p>
-                            </div>
-                        </div>
-                        <div class="facility-item">
-                            <img src="assets/images/pentaxs.jpg" alt="Total Station (Trimble & Pentax)" class="facility-image">
-                            <div class="facility-info">
-                                <h4 class="facility-title">Total Station (Trimble & Pentax)</h4>
-                                <p class="image-caption">Versatile surveying instruments combining electronic distance measurement and angle measurement for precise topographic mapping, construction layout, and control surveys.</p>
-                            </div>
-                        </div>
-                        <div class="facility-item">
-                            <img src="assets/images/autolevel.jpg" alt="Auto Level" class="facility-image">
-                            <div class="facility-info">
-                                <h4 class="facility-title">Auto Level</h4>
-                                <p class="image-caption">An essential optical leveling instrument used for establishing and verifying horizontal levels, critical for various civil engineering and land surveying projects.</p>
-                            </div>
-                        </div>
-                        <div class="facility-item">
-                            <img src="assets/images/cors12.jpg" alt="CORS Station" class="facility-image">
-                            <div class="facility-info">
-                                <h4 class="facility-title">CORS Station</h4>
-                                <p class="image-caption">A Continuously Operating Reference Station (CORS) provides continuous, This reference station tracks GPS, GLONASS, Galileo, BeiDou, QZSS, and NavIC (IRNSS) signals. The station provides continuous tracking and transmits daily, hourly and high-rate data.</p>
-                                <div style="text-align: left;">
-                                    <p><b>Station status:</b> In-operation (Working on electrical power-supply and LAN connection)</p>
-                                    <div style="text-align: center;">  
+                    <div class="column-content-body">
+                        <div class="sub-columns-wrapper">
+                            <!-- Sub-Column A: Ground Based -->
+                            <div class="sub-column">
+                                <h3 class="sub-column-header">Ground Based</h3>
+                                <div class="facility-item">
+                                    <img src="assets/images/trimbler12.jpg" alt="Trimble R12 GNSS Receiver" class="facility-image">
+                                    <div class="facility-info">
+                                        <h4 class="facility-title">Trimble R12 GNSS Receiver</h4>
+                                        <p class="image-caption">A high-precision, robust GNSS receiver used for accurate and reliable geospatial data acquisition in challenging environments, essential for advanced geodetic surveys.</p>
+                                    </div>
+                                </div>
+                                <div class="facility-item">
+                                    <img src="assets/images/pentaxs.jpg" alt="Total Station (Trimble & Pentax)" class="facility-image">
+                                    <div class="facility-info">
+                                        <h4 class="facility-title">Total Station (Trimble & Pentax)</h4>
+                                        <p class="image-caption">Versatile surveying instruments combining electronic distance measurement and angle measurement for precise topographic mapping, construction layout, and control surveys.</p>
+                                    </div>
+                                </div>
+                                <div class="facility-item">
+                                    <img src="assets/images/autolevel.jpg" alt="Total Station (Trimble & Pentax)" class="facility-image">
+                                    <div class="facility-info">
+                                        <h4 class="facility-title">Auto Level</h4>
+                                        <p class="image-caption">An essential optical leveling instrument used for establishing and verifying horizontal levels, critical for various civil engineering and land surveying projects.</p>
+                                    </div>
+                                </div>
+                                <div class="facility-item">
+                                    <img src="assets/images/cors12.jpg" alt="Total Station (Trimble & Pentax)" class="facility-image">
+                                    <div class="facility-info">
+                                        <h4 class="facility-title">CORS Station</h4>
+                                        <p class="image-caption">A Continuously Operating Reference Station (CORS) provides continuous, This reference station tracks GPS, GLONASS, Galileo, BeiDou, QZSS, and NavIC (IRNSS) signals. The station provides continuous tracking and transmits daily, hourly and high-rate data.</p>
+                                        <p><b>Station status:</b> In-operation (Working on electrical power-supply and LAN connection)</p>
                                         <p class="image-caption" style="font-size: 14px;"><b>ITRF(2014)</b></p>
                                         <p class="image-caption" style="font-size: 13px;"><b>Latitude:</b> 19° 08’ 20.65”N</p>
                                         <p class="image-caption" style="font-size: 13px;"><b>Longitude:</b> 72° 55’ 07.97”E</p>
                                     </div>
                                 </div>
-                                </p>
+                            </div>
+                            <!-- Sub-Column B: Airborne Based -->
+                            <div class="sub-column">
+                                <h3 class="sub-column-header">Airborne Based</h3>
+                                <div class="facility-item" reduce-space="">
+                                    <img src="assets/images/djiphantom4.jpg" alt="DJI Phantom 4 Pro" class="facility-image">
+                                    <div class="facility-info">
+                                        <h4 class="facility-title">DJI Phantom 4 Pro</h4>
+                                        <p class="image-caption">A high-resolution aerial imaging and mapping drone ideal for detailed photogrammetry and 3D modeling.</p>
+                                    </div>
+                                </div>
+                                <div class="facility-item" reduce-space="">
+                                    <img src="assets/images/senseFlyeBee.jpg" alt="SenseFly eBee Mapping Drone" class="facility-image">
+                                    <div class="facility-info">
+                                        <h4 class="facility-title">SenseFly eBee Mapping Drone</h4>
+                                        <p class="image-caption">A professional fixed-wing drone designed for efficient and large-scale aerial mapping.</p>
+                                    </div>
+                                </div>
+                                <div class="facility-item" reduce-space="">
+                                    <img src="assets/images/dji-350.jpg" alt="Dji Lidar" class="facility-image">
+                                    <div class="facility-info">
+                                        <h4 class="facility-title">DJI Matrice 350 RTK</h4>
+                                        <p class="image-caption">A professional fixed-wing drone designed for efficient and large-scale aerial mapping.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Drone Column (now contains Airborne content) -->
-                <div class="card-item facility-main-column drone-column">
-                    <div class="card-header-wrapper">
-                        <h2>UAV Based</h2>
-                    </div>
-                    <div class="column-content-body">
-                        <!-- Moved Airborne content here -->
-                        <div class="facility-item">
-                            <img src="assets/images/djiphantom4.jpg" alt="DJI Phantom 4 Pro" class="facility-image">
-                            <div class="facility-info">
-                                <h4 class="facility-title">DJI Phantom 4 Pro</h4>
-                                <p class="image-caption">A high-resolution aerial imaging and mapping drone equipped with a 1-inch 20MP sensor, ideal for detailed photogrammetry, 3D modeling, and remote sensing applications.</p>
-                            </div>
-                        </div>
-                        <div class="facility-item">
-                            <img src="assets/images/senseFlyeBee.jpg" alt="SenseFly eBee Mapping Drone" class="facility-image">
-                            <div class="facility-info">
-                                <h4 class="facility-title">SenseFly eBee Mapping Drone</h4>
-                                <p class="image-caption">A professional fixed-wing drone designed for efficient and large-scale aerial mapping, capable of delivering high-accuracy orthomosaics, digital elevation models, and 3D models.</p>
-                            </div>
-                        </div>
-                        <div class="facility-item">
-                            <img src="assets/images/dji-350.jpg" alt="Dji Lidar" class="facility-image">
-                            <div class="facility-info">
-                                <h4 class="facility-title">DJI Matrice 350 RTK</h4>
-                                <p class="image-caption">The DJI Matrice 350 RTK is used in geophysics and geodesy for precise aerial surveys, terrain mapping, and subsurface exploration using RTK, LiDAR sensors, multispectral cameras, and magnetometers.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- END: Column 2 -->
             </div>
         </div>
     </section>
 </main>
-
-<footer class="footer bg-dark text-light">
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; font-size: 1rem;">
-        <span>Developed by: Pranav Saxena </span>
-        <span>&copy; 2025 RCG, IIT Bombay. All rights reserved.</span>
-        <span style="font-size: 0.95em;">Last update: Jul-24-2025</span>
-    </div>
-</footer>
-
-<!-- Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<!-- Link to your navbar.js script for modular header -->
-<script src="assets/js/navbar.js"></script>
-<!-- Link to the new external facility-modal.js script -->
-<script src="assets/js/facility-modal.js"></script>
 
 </body>
 </html>
