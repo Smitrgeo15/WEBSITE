@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let currentIndex = 0;
     const displayDuration = 1000; // 1 second display for heading-only
-    const animationDuration = 800; // 0.8 seconds for slide animation
+    const animationDuration = 1200; // 0.8 seconds for slide animation
     let autoSlideTimeout; // Stores the timeout for the next slide cycle
     let isSliderPaused = false; // Flag to control auto-sliding
 
