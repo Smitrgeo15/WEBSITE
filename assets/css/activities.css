@@ -160,6 +160,17 @@
     line-height: 1.3;
     text-align: justify;
 }
+.activity-image-figure {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.activity-image-caption {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 4px;
+    font-style: italic;
+}
 
 /* Removed .activity-content-description styles as the paragraph is removed */
 
